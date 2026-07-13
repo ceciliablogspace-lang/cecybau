@@ -134,6 +134,176 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ---- Enlaces del hero ---- */
+.hero__links {
+  margin-top: 2.4rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--muted);
+}
+
+.hero__links a {
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s, color .25s;
+}
+
+.hero__links a:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---- Páginas interiores (galería, sobre mí) ---- */
+.page { background: var(--bg); }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem clamp(1.2rem, 5vw, 3rem);
+  border-bottom: 1px solid #eee6db;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+.nav__brand {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav__links { display: flex; gap: clamp(1rem, 3vw, 2rem); }
+
+.nav__links a {
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: color .25s, border-color .25s;
+}
+
+.nav__links a:hover,
+.nav__links a.is-active { color: var(--accent); border-color: var(--accent); }
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.2rem, 5vw, 3rem) 5rem;
+}
+
+.page-title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  text-align: center;
+}
+
+.page-sub {
+  text-align: center;
+  color: var(--muted);
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  margin-top: .5rem;
+}
+
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 1.9rem;
+  margin: 3.2rem 0 1.4rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid #eee6db;
+}
+
+/* ---- Galería ---- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.6rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #f0e9df;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(43, 38, 34, 0.10);
+}
+
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.card figcaption {
+  padding: .9rem 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.card figcaption strong {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.card figcaption span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* ---- Sobre mí ---- */
+.about { max-width: 720px; text-align: center; }
+
+.about__photo {
+  width: 168px;
+  height: 168px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 1.6rem;
+  display: block;
+  border: 4px solid #f0e9df;
+}
+
+.about__text {
+  margin-top: 2rem;
+  text-align: left;
+  line-height: 1.85;
+  color: #4c453e;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  font-size: 1.02rem;
+}
+
+.foot--static {
+  position: static;
+  text-align: center;
+  padding: 2rem 0 1.6rem;
+}
+
 /* Respeta a quien prefiere menos movimiento */
 @media (prefers-reduced-motion: reduce) {
   .drip { animation: none; transform: scaleY(1); }
