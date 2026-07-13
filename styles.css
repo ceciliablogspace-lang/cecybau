@@ -476,6 +476,119 @@ body {
   .nav--home { position: relative; background: transparent; }
 }
 
+/* ---- Ventas: hero, badges, botones de compra ---- */
+.hero__pitch {
+  margin-top: 1.6rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.hero__cta { margin-top: 1.2rem; }
+
+.card { position: relative; }
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.92);
+  color: #4a7c59;
+  border: 1px solid #cfe3d4;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: .28rem .6rem;
+  border-radius: 99px;
+}
+
+.badge--sold { color: #a05252; border-color: #e6cfcf; }
+
+.buy {
+  margin-top: .6rem;
+  display: inline-block;
+  align-self: flex-start;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: .5rem 1rem;
+  border-radius: 99px;
+  transition: filter .2s, transform .2s;
+}
+
+.buy:hover { filter: brightness(0.92); transform: translateY(-1px); }
+
+.btn--wa { background: #25d366; text-transform: none; letter-spacing: 0.06em; font-size: 0.95rem; }
+.btn--wa:hover { background: #1fb457; }
+
+.page-cred {
+  text-align: center;
+  color: var(--muted);
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 0.98rem;
+  margin-top: .4rem;
+}
+
+.ig { color: var(--muted); }
+.ig:hover { color: var(--accent); }
+
+/* ---- Lightbox: obra en grande ---- */
+.card img { cursor: zoom-in; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(24, 20, 17, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+  cursor: zoom-out;
+}
+
+.lightbox.open { opacity: 1; pointer-events: auto; }
+
+.lightbox figure {
+  max-width: min(92vw, 1000px);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .9rem;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox figcaption {
+  color: #f1ece5;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.lightbox__close {
+  position: fixed;
+  top: 1rem;
+  right: 1.4rem;
+  color: #f1ece5;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
 /* Respeta a quien prefiere menos movimiento */
 @media (prefers-reduced-motion: reduce) {
   .drip { animation: none; transform: scaleY(1); }
