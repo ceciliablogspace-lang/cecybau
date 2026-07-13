@@ -4,13 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cecy Bau — Artista</title>
-  <meta name="description" content="Cecy Bau — artista visual. Obra, exposiciones y contacto." />
+  <meta name="description" content="Cecy Bau — artista visual. Acuarela, óleo y grabado. Obra, noticias y contacto." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <header class="nav nav--home">
+    <a class="nav__brand" href="index.html">Cecy Bau</a>
+    <nav class="nav__links">
+      <a href="index.html" class="is-active">Inicio</a>
+      <a href="galeria.html">Galería</a>
+      <a href="noticias.html">Noticias</a>
+      <a href="eventos.html">Eventos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
   <main class="hero">
 
     <!-- Chorros de pintura acuarela -->
@@ -30,18 +43,37 @@
     <div class="hero__inner">
       <p class="eyebrow">artista visual</p>
       <h1 class="name">Cecy&nbsp;Bau</h1>
-      <p class="tagline">Obra en proceso · Pintura y color</p>
-      <nav class="hero__links">
-        <a href="galeria.html">Galería</a>
-        <span>·</span>
-        <a href="sobre-mi.html">Sobre mí</a>
-      </nav>
+      <p class="tagline">Acuarela · Óleo · Grabado</p>
+      <a class="hero__scroll" href="#destacada">↓</a>
     </div>
-
-    <footer class="foot">
-      <span>&copy; <span id="year"></span> Cecy Bau</span>
-    </footer>
   </main>
+
+  <!-- Obra destacada -->
+  <section class="featured" id="destacada">
+    <p class="eyebrow">obra destacada</p>
+    <a href="galeria.html" class="featured__link">
+      <img src="images/obras/colibri.jpg" alt="Colibrí — acuarela de gran formato de un colibrí sobre fondo colorido con escurridos de pintura" />
+    </a>
+    <h2 class="featured__title">Colibrí</h2>
+    <p class="featured__meta">Acuarela · 100 × 70 cm · 2021</p>
+    <a class="btn" href="galeria.html">Ver toda la galería</a>
+  </section>
+
+  <!-- Noticias recientes -->
+  <section class="home-news">
+    <h2 class="section-title">Noticias</h2>
+    <ul class="news-list">
+      <li>
+        <span class="news-date">Julio 2026</span>
+        <p>¡Bienvenidos! Estreno mi sitio web oficial: aquí encontrarás mi obra en acuarela, óleo y grabado, con piezas disponibles para adquirir.</p>
+      </li>
+    </ul>
+    <a class="btn btn--ghost" href="noticias.html">Todas las noticias</a>
+  </section>
+
+  <footer class="foot foot--static">
+    <span>&copy; <span id="year"></span> Cecy Bau</span>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>

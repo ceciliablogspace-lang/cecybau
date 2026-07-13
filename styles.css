@@ -320,6 +320,162 @@ body {
   padding: 2rem 0 1.6rem;
 }
 
+/* ---- Nav sobre el hero (inicio) ---- */
+.nav--home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  border-bottom: none;
+  backdrop-filter: none;
+  z-index: 20;
+}
+
+/* ---- Flecha para bajar ---- */
+.hero__scroll {
+  display: inline-block;
+  margin-top: 2.6rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 1.4rem;
+  animation: bob 1.8s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
+}
+
+/* ---- Obra destacada ---- */
+.featured {
+  text-align: center;
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.featured__link { display: block; }
+
+.featured img {
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 24px 60px rgba(43, 38, 34, 0.16);
+  transition: transform .4s ease;
+}
+
+.featured__link:hover img { transform: scale(1.015); }
+
+.featured__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  margin-top: 1.8rem;
+}
+
+.featured__meta {
+  color: var(--muted);
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  margin-top: .3rem;
+}
+
+/* ---- Botones ---- */
+.btn {
+  display: inline-block;
+  margin-top: 1.6rem;
+  padding: .8rem 2rem;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  border-radius: 3px;
+  transition: background .25s;
+}
+
+.btn:hover { background: var(--accent); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.btn--ghost:hover { background: var(--ink); color: #fff; }
+
+/* ---- Noticias ---- */
+.home-news {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem clamp(3rem, 8vw, 5rem);
+  text-align: center;
+}
+
+.home-news .section-title { text-align: left; }
+
+.news-list {
+  list-style: none;
+  text-align: left;
+}
+
+.news-list li {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #f0e9df;
+}
+
+.news-date {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+}
+
+.news-list p { line-height: 1.75; color: #4c453e; }
+
+.news-list a { color: var(--accent); }
+
+.news-list--page { margin-top: 2.5rem; }
+
+/* ---- Contacto / estados vacíos ---- */
+.wrap--narrow { max-width: 720px; }
+
+.center { text-align: center; }
+
+.contact-card,
+.empty-state {
+  margin-top: 2.6rem;
+  padding: 2.4rem 2rem;
+  border: 1px solid #f0e9df;
+  border-radius: 8px;
+  background: #fffdfa;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  line-height: 1.8;
+  color: #4c453e;
+}
+
+.contact-card a:not(.btn),
+.empty-state a { color: var(--accent); }
+
+.contact-card .btn { align-self: center; text-transform: none; letter-spacing: 0.06em; font-size: 0.95rem; }
+
+.contact-note { font-size: 0.85rem; color: var(--muted); }
+
+/* ---- Nav responsive ---- */
+@media (max-width: 720px) {
+  .nav { flex-direction: column; gap: .9rem; padding: 1rem; }
+  .nav__links { flex-wrap: wrap; justify-content: center; row-gap: .6rem; }
+  .nav--home { position: relative; background: transparent; }
+}
+
 /* Respeta a quien prefiere menos movimiento */
 @media (prefers-reduced-motion: reduce) {
   .drip { animation: none; transform: scaleY(1); }
