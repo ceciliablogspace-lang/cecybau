@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Gota de acuarela -->
+  <path d="M32 4 C32 4 10 30 10 42 a22 22 0 0 0 44 0 C54 30 32 4 32 4 Z" fill="#c47a6d"/>
+  <path d="M32 10 C32 10 14 31 14 42 a18 18 0 0 0 36 0 C50 31 32 10 32 10 Z" fill="#cf8a7e" opacity=".55"/>
+  <text x="32" y="49" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="bold" fill="#fffdfa">CB</text>
+</svg>
