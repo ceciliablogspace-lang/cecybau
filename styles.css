@@ -106,7 +106,7 @@ body {
 .name {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: clamp(3.4rem, 12vw, 7rem);
+  font-size: clamp(2.3rem, 9vw, 5.6rem);
   line-height: 1;
   letter-spacing: 0.01em;
 }
