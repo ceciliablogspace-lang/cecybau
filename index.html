@@ -24,20 +24,30 @@
     </nav>
   </header>
 
+  <!-- Filtro que ondula los bordes como agua sobre papel -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="acuarela" x="-30%" y="-10%" width="160%" height="130%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.06" numOctaves="3" seed="7" result="agua" />
+        <feDisplacementMap in="SourceGraphic" in2="agua" scale="14" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
   <main class="hero">
 
     <!-- Chorros de pintura acuarela -->
     <div class="drips" aria-hidden="true">
-      <span class="drip" style="--x:6%;  --w:11px; --len:34vh; --c:#c47a6d; --d:.05s; --t:2.4s; --dd:1.6s"></span>
-      <span class="drip" style="--x:15%; --w:8px;  --len:22vh; --c:#d9a441; --d:.35s; --t:2.0s; --dd:3.1s"></span>
-      <span class="drip" style="--x:24%; --w:14px; --len:44vh; --c:#7fa99b; --d:.15s; --t:2.8s; --dd:2.3s"></span>
-      <span class="drip" style="--x:34%; --w:9px;  --len:28vh; --c:#a58fbf; --d:.55s; --t:2.2s; --dd:4.0s"></span>
-      <span class="drip" style="--x:47%; --w:12px; --len:52vh; --c:#c47a6d; --d:.25s; --t:3.0s; --dd:1.9s"></span>
-      <span class="drip" style="--x:58%; --w:8px;  --len:24vh; --c:#6f9fc4; --d:.6s;  --t:2.1s; --dd:3.6s"></span>
-      <span class="drip" style="--x:68%; --w:13px; --len:40vh; --c:#d9a441; --d:.1s;  --t:2.7s; --dd:2.7s"></span>
-      <span class="drip" style="--x:78%; --w:10px; --len:30vh; --c:#7fa99b; --d:.45s; --t:2.3s; --dd:1.3s"></span>
-      <span class="drip" style="--x:88%; --w:12px; --len:46vh; --c:#a58fbf; --d:.2s;  --t:2.9s; --dd:3.3s"></span>
-      <span class="drip" style="--x:94%; --w:8px;  --len:20vh; --c:#6f9fc4; --d:.7s;  --t:2.0s; --dd:2.1s"></span>
+      <span class="drip" style="--x:6%;  --w:13px; --len:34vh; --c:#c47a6d; --d:.05s; --t:3.6s; --dd:1.6s; --rot:1.4deg;  --o:.75"></span>
+      <span class="drip" style="--x:15%; --w:8px;  --len:22vh; --c:#d9a441; --d:.35s; --t:2.9s; --dd:3.1s; --rot:-1.8deg; --o:.6"></span>
+      <span class="drip" style="--x:24%; --w:17px; --len:44vh; --c:#7fa99b; --d:.15s; --t:4.2s; --dd:2.3s; --rot:.8deg;   --o:.8"></span>
+      <span class="drip" style="--x:34%; --w:9px;  --len:28vh; --c:#a58fbf; --d:.55s; --t:3.2s; --dd:4.0s; --rot:-1.1deg; --o:.65"></span>
+      <span class="drip" style="--x:47%; --w:14px; --len:52vh; --c:#c47a6d; --d:.25s; --t:4.6s; --dd:1.9s; --rot:1.7deg;  --o:.85"></span>
+      <span class="drip" style="--x:58%; --w:7px;  --len:24vh; --c:#6f9fc4; --d:.6s;  --t:3.0s; --dd:3.6s; --rot:-2.2deg; --o:.55"></span>
+      <span class="drip" style="--x:68%; --w:16px; --len:40vh; --c:#d9a441; --d:.1s;  --t:4.0s; --dd:2.7s; --rot:.9deg;   --o:.78"></span>
+      <span class="drip" style="--x:78%; --w:10px; --len:30vh; --c:#7fa99b; --d:.45s; --t:3.4s; --dd:1.3s; --rot:-1.4deg; --o:.62"></span>
+      <span class="drip" style="--x:88%; --w:15px; --len:46vh; --c:#a58fbf; --d:.2s;  --t:4.4s; --dd:3.3s; --rot:1.2deg;  --o:.8"></span>
+      <span class="drip" style="--x:94%; --w:8px;  --len:20vh; --c:#6f9fc4; --d:.7s;  --t:2.8s; --dd:2.1s; --rot:-.7deg;  --o:.58"></span>
     </div>
 
     <div class="hero__inner">
