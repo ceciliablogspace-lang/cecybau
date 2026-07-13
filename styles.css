@@ -18,6 +18,7 @@ body {
 }
 
 .hero {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,13 +26,72 @@ body {
   align-items: center;
   text-align: center;
   padding: 2rem;
-  background:
-    radial-gradient(120% 90% at 50% 0%, #fbf7f1 0%, var(--bg) 60%);
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 0%, #fbf7f1 0%, var(--bg) 60%);
 }
 
+/* ---- Chorros de pintura acuarela ---- */
+.drips {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.drip {
+  position: absolute;
+  top: -3vh;
+  left: var(--x);
+  width: var(--w);
+  height: var(--len);
+  background: linear-gradient(to bottom,
+      var(--c) 0%,
+      var(--c) 55%,
+      transparent 100%);
+  border-radius: 0 0 45% 45% / 0 0 24px 24px;
+  transform: scaleY(0);
+  transform-origin: top center;
+  mix-blend-mode: multiply;
+  filter: blur(0.6px);
+  opacity: 0.82;
+  animation: drip-grow var(--t) var(--d) cubic-bezier(.45, 0, .2, 1) both;
+}
+
+/* Gotita que se desprende y cae */
+.drip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  width: calc(var(--w) * 1.05);
+  height: calc(var(--w) * 1.25);
+  background: var(--c);
+  border-radius: 50% 50% 55% 55%;
+  transform: translateX(-50%);
+  mix-blend-mode: multiply;
+  filter: blur(0.5px);
+  opacity: 0;
+  animation: drip-drop 5s var(--dd) ease-in infinite;
+}
+
+@keyframes drip-grow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+@keyframes drip-drop {
+  0%   { opacity: 0;   transform: translate(-50%, 0) scale(.75); }
+  8%   { opacity: .85; }
+  100% { opacity: 0;   transform: translate(-50%, 55vh) scale(1.15); }
+}
+
+/* ---- Contenido ---- */
 .hero__inner {
+  position: relative;
+  z-index: 1;
   max-width: 640px;
-  animation: rise 1.1s ease both;
+  animation: rise 1.1s .3s ease both;
 }
 
 .eyebrow {
@@ -59,18 +119,9 @@ body {
   margin-top: 1.1rem;
 }
 
-.soon {
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin-top: 2.2rem;
-  line-height: 1.7;
-  max-width: 30rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .foot {
   position: absolute;
+  z-index: 1;
   bottom: 1.6rem;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
@@ -81,4 +132,11 @@ body {
 @keyframes rise {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .drip { animation: none; transform: scaleY(1); }
+  .drip::after { animation: none; }
+  .hero__inner { animation: none; }
 }
