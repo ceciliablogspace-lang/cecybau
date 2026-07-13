@@ -505,22 +505,28 @@ body {
 
 .badge--sold { color: #a05252; border-color: #e6cfcf; }
 
-.buy {
-  margin-top: .6rem;
-  display: inline-block;
-  align-self: flex-start;
+/* Botón flotante de WhatsApp (abajo a la izquierda) */
+.wa-float {
+  position: fixed;
+  bottom: 1.4rem;
+  left: 1.4rem;
+  z-index: 50;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #25d366;
   color: #fff;
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  padding: .5rem 1rem;
-  border-radius: 99px;
-  transition: filter .2s, transform .2s;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
-.buy:hover { filter: brightness(0.92); transform: translateY(-1px); }
+.wa-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
 
 .btn--wa { background: #25d366; text-transform: none; letter-spacing: 0.06em; font-size: 0.95rem; }
 .btn--wa:hover { background: #1fb457; }
