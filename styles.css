@@ -471,9 +471,13 @@ body {
 
 /* ---- Nav responsive ---- */
 @media (max-width: 720px) {
-  .nav { flex-direction: column; gap: .9rem; padding: 1rem; }
-  .nav__links { flex-wrap: wrap; justify-content: center; row-gap: .6rem; }
+  /* En celular el menú es compacto y no se queda pegado (más espacio para la obra) */
+  .nav { position: static; flex-direction: column; gap: .7rem; padding: .9rem .6rem; }
+  .nav__brand { font-size: 1.3rem; }
+  .nav__links { flex-wrap: wrap; justify-content: center; row-gap: .55rem; gap: .9rem; }
+  .nav__links a { font-size: 0.68rem; letter-spacing: 0.16em; }
   .nav--home { position: relative; background: transparent; }
+  .wa-float { width: 48px; height: 48px; bottom: 1rem; left: 1rem; }
 }
 
 /* ---- Ventas: hero, badges, botones de compra ---- */
