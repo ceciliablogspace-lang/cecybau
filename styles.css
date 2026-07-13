@@ -41,50 +41,21 @@ body {
 
 .drip {
   position: absolute;
-  top: -4vh;
+  top: -3vh;
   left: var(--x);
   width: var(--w);
   height: var(--len);
-  /* Pigmento acuarela: más denso en las orillas y encharcado al final */
-  background:
-    linear-gradient(to right,
-      color-mix(in srgb, var(--c) 92%, #3a2f28) 0%,
-      color-mix(in srgb, var(--c) 55%, #ffffff) 30%,
-      color-mix(in srgb, var(--c) 48%, #ffffff) 65%,
-      color-mix(in srgb, var(--c) 90%, #3a2f28) 100%),
-    linear-gradient(to bottom,
+  background: linear-gradient(to bottom,
       var(--c) 0%,
-      color-mix(in srgb, var(--c) 70%, #ffffff) 42%,
-      var(--c) 68%,
-      color-mix(in srgb, var(--c) 82%, #3a2f28) 86%,
+      var(--c) 55%,
       transparent 100%);
-  background-blend-mode: multiply;
-  border-radius: 40% 60% 45% 55% / 2% 3% 46% 54%;
-  transform: rotate(var(--rot, 0deg)) scaleY(0);
+  border-radius: 0 0 45% 45% / 0 0 24px 24px;
+  transform: scaleY(0);
   transform-origin: top center;
   mix-blend-mode: multiply;
-  filter: url(#acuarela) blur(0.4px);
-  opacity: var(--o, 0.75);
-  animation: drip-grow var(--t) var(--d) cubic-bezier(.3, .9, .55, .99) both;
-}
-
-/* Charquito de pigmento en la punta */
-.drip::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 6%;
-  width: calc(var(--w) * 2.1);
-  height: calc(var(--w) * 1.7);
-  background: radial-gradient(ellipse at 50% 42%,
-      color-mix(in srgb, var(--c) 88%, #3a2f28) 0%,
-      var(--c) 45%,
-      color-mix(in srgb, var(--c) 45%, #ffffff) 78%,
-      transparent 100%);
-  border-radius: 58% 42% 55% 45% / 50% 55% 45% 50%;
-  transform: translateX(-50%);
-  mix-blend-mode: multiply;
-  opacity: .9;
+  filter: blur(0.6px);
+  opacity: 0.82;
+  animation: drip-grow var(--t) var(--d) cubic-bezier(.45, 0, .2, 1) both;
 }
 
 /* Gotita que se desprende y cae */
@@ -93,10 +64,10 @@ body {
   position: absolute;
   left: 50%;
   bottom: 4%;
-  width: calc(var(--w) * 0.9);
-  height: calc(var(--w) * 1.3);
+  width: calc(var(--w) * 1.05);
+  height: calc(var(--w) * 1.25);
   background: var(--c);
-  border-radius: 60% 40% 52% 48% / 38% 42% 60% 58%;
+  border-radius: 50% 50% 55% 55%;
   transform: translateX(-50%);
   mix-blend-mode: multiply;
   filter: blur(0.5px);
@@ -105,11 +76,8 @@ body {
 }
 
 @keyframes drip-grow {
-  0%   { transform: rotate(var(--rot, 0deg)) scaleY(0); }
-  55%  { transform: rotate(var(--rot, 0deg)) scaleY(.62); }
-  72%  { transform: rotate(var(--rot, 0deg)) scaleY(.78); }
-  86%  { transform: rotate(var(--rot, 0deg)) scaleY(.94); }
-  100% { transform: rotate(var(--rot, 0deg)) scaleY(1); }
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
 }
 
 @keyframes drip-drop {
@@ -510,7 +478,7 @@ body {
 
 /* Respeta a quien prefiere menos movimiento */
 @media (prefers-reduced-motion: reduce) {
-  .drip { animation: none; transform: rotate(var(--rot, 0deg)) scaleY(1); }
+  .drip { animation: none; transform: scaleY(1); }
   .drip::after { animation: none; }
   .hero__inner { animation: none; }
 }
