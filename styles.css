@@ -184,11 +184,12 @@ body {
 .nav__links { display: flex; gap: clamp(1rem, 3vw, 2rem); }
 
 .nav__links a {
-  color: var(--muted);
+  color: var(--ink);
+  font-weight: 500;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  font-size: 0.82rem;
   padding-bottom: 3px;
   border-bottom: 1px solid transparent;
   transition: color .25s, border-color .25s;
@@ -475,7 +476,7 @@ body {
   .nav { position: static; flex-direction: column; gap: .7rem; padding: .9rem .6rem; }
   .nav__brand { font-size: 1.3rem; }
   .nav__links { flex-wrap: wrap; justify-content: center; row-gap: .55rem; gap: .9rem; }
-  .nav__links a { font-size: 0.68rem; letter-spacing: 0.16em; }
+  .nav__links a { font-size: 0.74rem; letter-spacing: 0.12em; }
   .nav--home { position: relative; background: transparent; }
   .wa-float { width: 48px; height: 48px; bottom: 1rem; left: 1rem; }
 }
