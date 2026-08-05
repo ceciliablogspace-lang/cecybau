@@ -1,7 +1,7 @@
 // Muestra el año actual en el pie de página automáticamente.
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Botón flotante de WhatsApp (abajo a la izquierda, en todas las páginas).
+// Botón flotante de WhatsApp (abajo a la derecha, en todas las páginas).
 const wa = document.createElement("a");
 wa.className = "wa-float";
 wa.href = "https://wa.me/525525228756?text=" + encodeURIComponent("Hola Cecy, vengo de cecybau.com y me gustaría platicar contigo");

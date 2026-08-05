@@ -559,7 +559,7 @@ body {
   .nav__links { flex-wrap: wrap; justify-content: center; row-gap: .55rem; gap: .9rem; }
   .nav__links a { font-size: 0.74rem; letter-spacing: 0.12em; }
   .nav--home { position: relative; background: transparent; }
-  .wa-float { width: 48px; height: 48px; bottom: 1rem; left: 1rem; }
+  .wa-float { width: 48px; height: 48px; bottom: 1rem; right: 1rem; }
 }
 
 /* ---- Ventas: hero, badges, botones de compra ---- */
@@ -595,7 +595,7 @@ body {
 .wa-float {
   position: fixed;
   bottom: 1.4rem;
-  left: 1.4rem;
+  right: 1.4rem;
   z-index: 50;
   width: 52px;
   height: 52px;

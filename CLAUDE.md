@@ -23,7 +23,7 @@ Portafolio y tienda de arte de Cecilia. Sitio **HTML/CSS/JS estático puro** (si
 ## Reglas del contenido
 - **Marca**: "Cecilia Bautista" (nombre completo, lo prefiere; NO "Cecy Bau" en textos).
 - **Precios**: los del dossier van ×1.5. Si da un precio nuevo, preguntar/confirmar si ya es precio final de web (en las obras de 2026 los dio finales, sin ×1.5). Nota actual de la galería: "Los precios incluyen el marco y no incluyen envío".
-- **Ventas**: WhatsApp 5525228756 (wa.me/525525228756) vía botón flotante abajo-izquierda; sin botones de compra por obra (le parecen intrusivos).
+- **Ventas**: WhatsApp 5525228756 (wa.me/525525228756) vía botón flotante abajo-derecha; sin botones de compra por obra (le parecen intrusivos).
 - **Instagram**: @ceci_ly (footer y contacto).
 - **Correo**: ceciliablogspace@gmail.com.
 - Cuando venda una obra: cambiar badge a "Vendida" (clase `.badge--sold` ya existe).
