@@ -15,7 +15,8 @@ Portafolio y tienda de arte de Cecilia. Sitio **HTML/CSS/JS estático puro** (si
 - `galeria.html` — 4 secciones por técnica: **Acuarela / Óleo / Grabado / Vidrio y cerámica**. Las secciones sin obra llevan `<p class="page-sub">Próximamente</p>`. Imágenes en `images/obras/`.
   - Se vaciaron las 24 obras viejas (sus fotos siguen en `images/obras/` por si las pide de vuelta).
   - Actualmente publicadas solo 3 óleos de 2026: Música y viento I, Abriendo la noche, Música y viento II.
-- `noticias.html`, `eventos.html` (placeholder "próximamente"), `sobre-mi.html` (bio + foto), `contacto.html`.
+- `eventos.html` (placeholder "próximamente"), `sobre-mi.html` (bio + foto), `contacto.html`.
+- `noticias.html` sigue en el repo pero **fuera del menú** (Cecy pidió quitar la pestaña de Noticias). Tampoco está en el sitemap. El bloque de noticias del inicio sí se quedó.
 - `script.js` — año del footer, lightbox de obras, botón flotante de WhatsApp.
 - `styles.css` — todo el estilo. Paleta: fondo blanco, tinta #2b2622, acento terracota #c47a6d, tipografías Cormorant Garamond + Jost.
 
