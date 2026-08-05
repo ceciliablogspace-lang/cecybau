@@ -251,8 +251,11 @@ body {
 
 .card img {
   width: 100%;
-  height: 260px;
-  object-fit: cover;
+  height: 300px;
+  /* contain = se ve la obra completa, sin recortes, respetando su forma */
+  object-fit: contain;
+  background: #fff;
+  padding: .5rem;
   display: block;
 }
 
