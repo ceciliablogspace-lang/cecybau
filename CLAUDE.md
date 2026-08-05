@@ -11,21 +11,35 @@ Portafolio y tienda de arte de Cecilia. Sitio **HTML/CSS/JS estático puro** (si
 - **Flujo de trabajo**: editar archivos → commit → `git push` a `main` → Vercel publica en ~20 s. Push directo a main está bien (así trabaja ella).
 
 ## Estructura
-- `index.html` — inicio: chorros de acuarela animados (rectos, NO "orgánicos": ya se probó y no le gustó), nombre, CTA, obra Colibrí, noticias.
-- `galeria.html` — 24 obras en 3 secciones (Pintura / Grabado / Formato pequeño) con ficha, precio y badge "Disponible". Imágenes en `images/obras/`.
+- `index.html` — inicio: chorros de acuarela animados (rectos, NO "orgánicos": ya se probó y no le gustó), nombre, CTA y noticias. (La obra destacada "Colibrí" se quitó a petición suya.)
+- `galeria.html` — 4 secciones por técnica: **Acuarela / Óleo / Grabado / Vidrio y cerámica**. Las secciones sin obra llevan `<p class="page-sub">Próximamente</p>`. Imágenes en `images/obras/`.
+  - Se vaciaron las 24 obras viejas (sus fotos siguen en `images/obras/` por si las pide de vuelta).
+  - Actualmente publicadas solo 3 óleos de 2026: Música y viento I, Abriendo la noche, Música y viento II.
 - `noticias.html`, `eventos.html` (placeholder "próximamente"), `sobre-mi.html` (bio + foto), `contacto.html`.
 - `script.js` — año del footer, lightbox de obras, botón flotante de WhatsApp.
 - `styles.css` — todo el estilo. Paleta: fondo blanco, tinta #2b2622, acento terracota #c47a6d, tipografías Cormorant Garamond + Jost.
 
 ## Reglas del contenido
 - **Marca**: "Cecilia Bautista" (nombre completo, lo prefiere; NO "Cecy Bau" en textos).
-- **Precios**: son los del dossier ×1.5, con nota "no incluyen envío". Si ella da un precio nuevo, aplicar también ×1.5 salvo que diga lo contrario.
+- **Precios**: los del dossier van ×1.5. Si da un precio nuevo, preguntar/confirmar si ya es precio final de web (en las obras de 2026 los dio finales, sin ×1.5). Nota actual de la galería: "Los precios incluyen el marco y no incluyen envío".
 - **Ventas**: WhatsApp 5525228756 (wa.me/525525228756) vía botón flotante abajo-izquierda; sin botones de compra por obra (le parecen intrusivos).
 - **Instagram**: @ceci_ly (footer y contacto).
 - **Correo**: ceciliablogspace@gmail.com.
 - Cuando venda una obra: cambiar badge a "Vendida" (clase `.badge--sold` ya existe).
+- **Títulos**: usa números romanos (Alquimia I, Música y viento II). Prefiere "Música y viento", no "Música de viento".
+
+## Cómo recibir sus fotos (importante)
+Cecy manda las fotos desde el celular y **no llegan como archivo** a `/root/.claude/uploads/`.
+Sí quedan embebidas en base64 en el transcript de la sesión:
+`/root/.claude/projects/-home-user-cecybau/<session-id>.jsonl` → bloques `{"type":"image","source":{"type":"base64",...}}`.
+Extraerlas de ahí con Python, convertir a JPG (máx 1600 px, calidad 88) y guardar en `images/obras/`.
+No pedirle que las descargue: su celular no tiene espacio y Drive/Google están bloqueados por el proxy de red.
+
+## Verificar antes de publicar
+`python3 -m http.server 8899` + Playwright (`executablePath: '/opt/pw-browsers/chromium'`) para revisar en compu y celular antes de hacer push.
 
 ## Pendientes conocidos
-- Confirmar precio de "Oponente" (dossier decía "$2,0000"; en web está $3,000).
+- Va a subir más obra enmarcada (acuarela, grabado, vidrio y cerámica) — las secciones ya están listas.
+- Los 3 óleos publicados traen marcos distintos (negro grueso / negro con lino / madera clara). Se le sugirió unificar; ella decide.
 - Página de Encargos/Comisiones (ella dará detalles).
-- Fotos profesionales de obra cuando las tenga.
+- Si repone obra vieja: confirmar precio de "Oponente" (dossier decía "$2,0000"; en web estaba $3,000).
