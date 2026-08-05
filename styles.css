@@ -452,7 +452,6 @@ body {
 
 .center { text-align: center; }
 
-.contact-card,
 .empty-state {
   margin-top: 2.6rem;
   padding: 2.4rem 2rem;
@@ -466,12 +465,91 @@ body {
   color: #4c453e;
 }
 
-.contact-card a:not(.btn),
 .empty-state a { color: var(--accent); }
 
-.contact-card .btn { align-self: center; text-transform: none; letter-spacing: 0.06em; font-size: 0.95rem; }
+/* Contacto: bloque centrado con dos acciones grandes */
+.contact { text-align: center; }
 
-.contact-note { font-size: 0.85rem; color: var(--muted); }
+.contact .eyebrow { margin-bottom: 1.1rem; }
+
+.contact-lead {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.35rem, 3.4vw, 1.8rem);
+  line-height: 1.45;
+  color: #4c453e;
+  max-width: 30ch;
+  margin: 1.6rem auto 0;
+}
+
+.contact-lead a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(196, 122, 109, .4);
+}
+
+.contact-lead a:hover { border-bottom-color: var(--accent); }
+
+.contact-sub {
+  color: var(--muted);
+  font-size: .98rem;
+  margin-top: 1.2rem;
+}
+
+.contact-actions {
+  margin-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  width: 100%;
+  max-width: 420px;
+  padding: 1.05rem 1.5rem;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.02rem;
+  transition: background .25s, color .25s, border-color .25s;
+}
+
+.btn-contact svg { width: 20px; height: 20px; flex: none; }
+
+.btn-contact:hover { background: var(--accent); border-color: var(--accent); }
+
+.btn-contact--outline {
+  background: transparent;
+  color: var(--ink);
+  border-color: #e2d8cc;
+}
+
+.btn-contact--outline:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+.contact-ig {
+  margin-top: .5rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color .2s;
+}
+
+.contact-ig:hover { color: var(--accent); }
+
+.contact-ig span { margin-left: .3rem; }
+
+.contact-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 2.6rem;
+  line-height: 1.7;
+}
 
 /* ---- Nav responsive ---- */
 @media (max-width: 720px) {
@@ -535,9 +613,6 @@ body {
   transform: scale(1.08);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
 }
-
-.btn--wa { background: #25d366; text-transform: none; letter-spacing: 0.06em; font-size: 0.95rem; }
-.btn--wa:hover { background: #1fb457; }
 
 .page-cred {
   text-align: center;
