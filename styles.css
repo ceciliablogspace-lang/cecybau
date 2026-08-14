@@ -626,6 +626,16 @@ body {
 .ig { color: var(--muted); }
 .ig:hover { color: var(--accent); }
 
+/* Logo de Instagram junto al @ */
+.ig-icon {
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.17em;
+  margin-right: 0.4em;
+}
+
+.contact-ig .ig-icon { width: 1.15em; height: 1.15em; vertical-align: -0.2em; }
+
 /* ---- Lightbox: obra en grande ---- */
 .card img { cursor: zoom-in; }
 
