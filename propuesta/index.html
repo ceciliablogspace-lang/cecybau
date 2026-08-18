@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cecilia Bautista</title>
+  <meta name="description" content="Cecilia Bautista — visual artist based in Mexico City." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="propuesta.css" />
+</head>
+<body>
+
+  <header class="site-nav" id="nav">
+    <a class="brand" href="index.html">Cecilia Bautista</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO: nombre + una sola obra respirando -->
+  <section class="hero">
+    <h1 class="hero__name">Cecilia Bautista</h1>
+    <p class="hero__sub">Visual Artist · Mexico City</p>
+
+    <figure class="hero__figure reveal">
+      <img src="../images/obras/musica-y-viento-i.jpg"
+           alt="Música y viento I — óleo de un músico cargando una tuba" />
+      <figcaption class="hero__cap"><b>Música y viento&nbsp;I</b> &nbsp;·&nbsp; 2026</figcaption>
+    </figure>
+  </section>
+
+  <!-- SELECTED WORKS -->
+  <section class="section wrap" id="work">
+    <h2 class="section__head">Selected Works</h2>
+
+    <div class="works">
+
+      <figure class="piece piece--lg piece--left reveal"
+              data-lb data-title="Indómita existencia" data-year="2026"
+              data-medium="Óleo sobre tela" data-status="Available — Inquire">
+        <img src="../images/obras/indomita-existencia.jpg" alt="Indómita existencia — óleo" />
+        <figcaption class="piece__meta">
+          <div class="piece__title">Indómita existencia</div>
+          <div class="piece__year">2026</div>
+        </figcaption>
+      </figure>
+
+      <div class="work-row work-row--offset reveal">
+        <figure class="piece col-narrow"
+                data-lb data-title="Abriendo la noche" data-year="2026"
+                data-medium="Óleo sobre cartón con base de media creta" data-size="20 × 20 cm"
+                data-status="Available — Inquire">
+          <img src="../images/obras/abriendo-la-noche.jpg" alt="Abriendo la noche — óleo de una trombonista" />
+          <figcaption class="piece__meta">
+            <div class="piece__title">Abriendo la noche</div>
+            <div class="piece__year">2026</div>
+          </figcaption>
+        </figure>
+        <figure class="piece col-wide"
+                data-lb data-title="Música y viento II" data-year="2026"
+                data-medium="Óleo sobre cartón" data-size="20 × 20 cm"
+                data-status="Available — Inquire">
+          <img src="../images/obras/musica-y-viento-ii.jpg" alt="Música y viento II — óleo de un trombón dorado" />
+          <figcaption class="piece__meta">
+            <div class="piece__title">Música y viento II</div>
+            <div class="piece__year">2026</div>
+          </figcaption>
+        </figure>
+      </div>
+
+      <figure class="piece piece--md piece--right reveal"
+              data-lb data-title="Música y viento I" data-year="2026"
+              data-medium="Óleo sobre lienzo" data-size="25 × 20 cm"
+              data-status="Available — Inquire">
+        <img src="../images/obras/musica-y-viento-i.jpg" alt="Música y viento I — óleo de un músico con una tuba" />
+        <figcaption class="piece__meta">
+          <div class="piece__title">Música y viento I</div>
+          <div class="piece__year">2026</div>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <div class="work-more">
+      <a class="btn-line" href="work.html">View all work</a>
+    </div>
+  </section>
+
+  <!-- ABOUT teaser -->
+  <section class="section wrap">
+    <div class="about-teaser reveal">
+      <div class="about-teaser__photo">
+        <img src="../images/cecilia.jpg" alt="Cecilia Bautista" />
+      </div>
+      <div class="about-teaser__body">
+        <h2>About</h2>
+        <p>Cecilia Bautista is a Mexican visual artist based in Mexico City, working across oil, watercolour, printmaking, glass and ceramics.</p>
+        <p>Her practice begins in the desire to translate emotions that find no place in words — fragility, memory and the beauty of the ephemeral.</p>
+        <a class="btn-line" href="about.html">Read more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHIBITIONS (breve) -->
+  <section class="section wrap">
+    <h2 class="section__head">Exhibitions</h2>
+    <div class="ex-list reveal">
+      <div class="ex-row"><span class="ex-year">2025</span><span class="ex-name">Vórtice Galería</span><span class="ex-city">Mexico City</span></div>
+      <div class="ex-row"><span class="ex-year">2024</span><span class="ex-name">Palacio de Minería</span><span class="ex-city">Mexico City</span></div>
+      <div class="ex-row"><span class="ex-year">2024</span><span class="ex-name">Biblioteca Pública Juan José Arreola</span><span class="ex-city">Guadalajara</span></div>
+    </div>
+    <div class="work-more"><a class="btn-line" href="exhibitions.html">Full list</a></div>
+  </section>
+
+  <footer class="site-foot">
+    <span class="foot-name">Cecilia Bautista</span>
+    <span>Mexico City</span>
+    <span class="foot-links">
+      <a href="https://www.instagram.com/ceci_ly/" target="_blank" rel="noopener">Instagram</a>
+      <a href="contact.html">Contact</a>
+    </span>
+  </footer>
+
+  <script src="propuesta.js"></script>
+</body>
+</html>
