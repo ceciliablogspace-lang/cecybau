@@ -18,16 +18,22 @@ if (nav) {
 var toggle = document.querySelector(".nav-toggle");
 var links = document.querySelector(".nav-links");
 if (toggle && links) {
-  toggle.addEventListener("click", function () {
-    var open = links.classList.toggle("open");
+  var setMenu = function (open) {
+    links.classList.toggle("open", open);
+    if (nav) nav.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.textContent = open ? "✕" : "☰";
+    toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Menú");
     document.body.style.overflow = open ? "hidden" : "";
+  };
+  toggle.addEventListener("click", function () {
+    setMenu(!links.classList.contains("open"));
   });
   links.querySelectorAll("a").forEach(function (a) {
-    a.addEventListener("click", function () {
-      links.classList.remove("open");
-      document.body.style.overflow = "";
-    });
+    a.addEventListener("click", function () { setMenu(false); });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") setMenu(false);
   });
 }
 
@@ -61,7 +67,7 @@ if (pieces.length) {
       '<div class="lb__img"><img alt="" /></div>' +
       '<div class="lb__meta">' +
         '<h3></h3><dl></dl>' +
-        '<a class="btn-line lb__inq" target="_blank" rel="noopener">Inquire</a>' +
+        '<a class="btn-line lb__inq" target="_blank" rel="noopener">Preguntar por esta obra</a>' +
       '</div>' +
     '</div>';
   document.body.appendChild(lb);
@@ -75,11 +81,11 @@ if (pieces.length) {
   var rows = function (data) {
     var out = "";
     [
-      ["Year", data.year],
-      ["Medium", data.medium],
-      ["Size", data.size],
-      ["Series", data.series],
-      ["Availability", data.status],
+      ["Año", data.year],
+      ["Técnica", data.medium],
+      ["Medidas", data.size],
+      ["Precio", data.price],
+      ["Disponibilidad", data.status],
     ].forEach(function (r) {
       if (r[1]) out += '<div class="row"><span class="k">' + r[0] + "</span>" + r[1] + "</div>";
     });

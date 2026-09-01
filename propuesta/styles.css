@@ -82,6 +82,14 @@ a{ color:inherit; text-decoration:none; }
 .nav-toggle{
   display:none; background:none; border:0; padding:6px; cursor:pointer;
   font-size:20px; color:var(--ink); line-height:1;
+  position:relative; z-index:60;   /* siempre por encima del menú abierto */
+}
+
+/* Con el menú abierto quitamos el desenfoque: si no, el menú de pantalla
+   completa se queda encerrado dentro de la barra y se encima con el texto. */
+.site-nav.menu-open{
+  backdrop-filter:none; -webkit-backdrop-filter:none;
+  background:var(--bg); border-bottom-color:transparent;
 }
 
 /* =========================================================
@@ -136,6 +144,8 @@ a{ color:inherit; text-decoration:none; }
 .piece__meta{ margin-top:16px; }
 .piece__title{ font-size:14px; letter-spacing:.02em; font-weight:500; }
 .piece__year{ font-size:13px; color:var(--muted); margin-top:2px; }
+.piece__price{ font-size:13px; color:var(--ink); margin-top:6px; letter-spacing:.04em; }
+.piece__sold{ color:var(--muted); }
 
 /* anchos + alineación asimétrica */
 .piece--left  { margin-right:auto; }
@@ -183,6 +193,70 @@ a{ color:inherit; text-decoration:none; }
 .ex-year{ font-size:13px; letter-spacing:.08em; color:var(--muted); font-weight:500; }
 .ex-name{ font-size:18px; }
 .ex-city{ font-size:14px; color:var(--muted); font-family:"Inter",sans-serif; letter-spacing:.02em; white-space:nowrap; }
+
+/* =========================================================
+   GALERÍA — obra por técnica, con precio
+   ========================================================= */
+.gal-intro{ max-width:62ch; margin:0 0 clamp(40px,7vh,86px); }
+.gal-intro h1{
+  font-family:"Inter",sans-serif; font-weight:300; letter-spacing:.16em;
+  text-transform:uppercase; font-size:clamp(24px,3.4vw,38px); margin:0 0 18px;
+}
+.gal-intro p{ margin:0 0 12px; color:#2a2823; font-size:17px; }
+.gal-intro a{ border-bottom:1px solid var(--line); }
+.gal-intro a:hover{ border-bottom-color:var(--ink); }
+.gal-intro .cred{ font-style:italic; color:var(--muted); font-size:16px; }
+
+.tecnica{ margin-bottom:clamp(60px,10vh,120px); }
+.tecnica__head{
+  font-family:"Inter",sans-serif; font-weight:500;
+  font-size:12px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--ink); margin:0 0 clamp(26px,4vh,44px);
+  padding-bottom:12px; border-bottom:1px solid var(--line);
+}
+.tecnica__soon{
+  font-size:16px; color:var(--muted); font-style:italic; margin:0;
+}
+
+.obras{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+  gap:clamp(34px,5vw,64px) clamp(28px,4vw,52px);
+}
+.obra{ margin:0; cursor:zoom-in; }
+.obra img{ width:100%; transition:opacity .4s var(--ease); }
+.obra:hover img{ opacity:.88; }
+.obra__meta{ margin-top:14px; }
+.obra__title{ font-family:"Inter",sans-serif; font-size:14px; font-weight:500; letter-spacing:.02em; }
+.obra__data{ font-family:"Inter",sans-serif; font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.5; }
+.obra__price{ font-family:"Inter",sans-serif; font-size:13px; margin-top:7px; letter-spacing:.04em; }
+.obra__badge{
+  font-family:"Inter",sans-serif; font-size:10.5px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--muted); margin-top:7px;
+}
+.obra--vendida .obra__price{ color:var(--muted); text-decoration:line-through; }
+
+/* =========================================================
+   EVENTOS
+   ========================================================= */
+.evento{ max-width:760px; margin:0; }
+.evento__cartel{ width:100%; margin-bottom:clamp(28px,5vh,52px); box-shadow:0 24px 60px -34px rgba(0,0,0,.28); }
+.evento__titulo{
+  font-family:"Inter",sans-serif; font-weight:300; letter-spacing:.14em;
+  text-transform:uppercase; font-size:clamp(22px,3.2vw,34px); margin:0 0 10px;
+}
+.evento__sub{ font-style:italic; color:#2a2823; margin:0 0 6px; font-size:19px; }
+.evento__meta{
+  font-family:"Inter",sans-serif; font-size:12px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted); margin:0 0 30px;
+}
+.evento__datos{ margin:0 0 28px; border-top:1px solid var(--line); }
+.evento__datos dt{
+  font-family:"Inter",sans-serif; font-size:11px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--muted); padding-top:16px;
+}
+.evento__datos dd{ margin:4px 0 16px; font-size:17px; border-bottom:1px solid var(--line); padding-bottom:16px; }
+.evento__nota{ font-size:15.5px; color:#4a463f; margin:0 0 14px; max-width:60ch; }
 
 /* =========================================================
    ABOUT page
@@ -247,6 +321,12 @@ a{ color:inherit; text-decoration:none; }
 .site-foot .foot-name{ color:var(--ink); letter-spacing:.2em; }
 .site-foot .foot-links{ display:flex; gap:26px; }
 .site-foot a:hover{ color:var(--ink); }
+
+/* Logo de Instagram */
+.ig-icon{
+  display:inline-block; width:1.05em; height:1.05em;
+  vertical-align:-.17em; margin-right:.45em;
+}
 
 /* =========================================================
    LIGHTBOX / ficha de obra
