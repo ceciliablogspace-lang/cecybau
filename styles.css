@@ -109,6 +109,38 @@ a{ color:inherit; text-decoration:none; }
   text-transform:uppercase; color:var(--muted); margin:18px 0 0; font-weight:400;
 }
 
+/* Portada: solo el nombre, ocupando toda la primera pantalla */
+.portada{
+  min-height:calc(100svh - 92px);
+  max-width:var(--maxw); margin-inline:auto;
+  padding:clamp(40px,10vh,120px) var(--gut) clamp(28px,5vh,60px);
+  display:flex; flex-direction:column; justify-content:center;
+}
+.portada__baja{
+  margin-top:auto; align-self:flex-start;
+  display:inline-flex; align-items:center; gap:12px;
+  font-family:"Inter",sans-serif; font-size:12px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted);
+  transition:color .3s var(--ease);
+}
+.portada__baja:hover{ color:var(--ink); }
+.portada__flecha{ font-size:16px; animation:respira 2.6s var(--ease) infinite; }
+
+@keyframes respira{
+  0%,100%{ transform:translateY(0);   opacity:.55; }
+  50%    { transform:translateY(6px); opacity:1; }
+}
+
+/* Una sola obra en el inicio */
+.obra-unica{ margin:0 auto; max-width:760px; cursor:zoom-in; }
+.obra-unica img{ width:100%; box-shadow:0 24px 60px -34px rgba(0,0,0,.28); transition:opacity .4s var(--ease); }
+.obra-unica:hover img{ opacity:.9; }
+.obra-unica .hero__cap{ text-align:center; }
+
+@media (prefers-reduced-motion: reduce){
+  .portada__flecha{ animation:none; }
+}
+
 .hero__figure{
   margin:clamp(46px,10vh,120px) auto 0;
   max-width:760px;            /* la obra respira, no llena a la fuerza */
