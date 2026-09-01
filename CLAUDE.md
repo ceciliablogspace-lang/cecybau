@@ -11,14 +11,24 @@ Portafolio y tienda de arte de Cecilia. Sitio **HTML/CSS/JS estático puro** (si
 - **Flujo de trabajo**: editar archivos → commit → `git push` a `main` → Vercel publica en ~20 s. Push directo a main está bien (así trabaja ella).
 
 ## Estructura
-- `index.html` — inicio: chorros de acuarela animados (rectos, NO "orgánicos": ya se probó y no le gustó), nombre, CTA y noticias. (La obra destacada "Colibrí" se quitó a petición suya.)
-- `galeria.html` — 4 secciones por técnica: **Acuarela / Óleo / Grabado / Vidrio y cerámica**. Las secciones sin obra llevan `<p class="page-sub">Próximamente</p>`. Imágenes en `images/obras/`.
-  - Se vaciaron las 24 obras viejas (sus fotos siguen en `images/obras/` por si las pide de vuelta).
-  - Actualmente publicadas solo 3 óleos de 2026: Música y viento I, Abriendo la noche, Música y viento II.
-- `eventos.html` (placeholder "próximamente"), `sobre-mi.html` (bio + foto), `contacto.html`.
-- `noticias.html` sigue en el repo pero **fuera del menú** (Cecy pidió quitar la pestaña de Noticias). Tampoco está en el sitemap. El bloque de noticias del inicio sí se quedó.
-- `script.js` — año del footer, lightbox de obras, botón flotante de WhatsApp.
-- `styles.css` — todo el estilo. Paleta: fondo blanco, tinta #2b2622, acento terracota #c47a6d, tipografías Cormorant Garamond + Jost.
+El sitio se remodeló (diseño editorial, agosto 2026). Tipografías **Inter + Newsreader**,
+fondo blanco cálido #fdfcfa, tinta #1b1a18. Todo en español, con las mismas direcciones de antes.
+
+- `index.html` — inicio: nombre, una obra grande ("Torito" óleo), selección de obra,
+  próxima exposición y bloque de Sobre mí. (Ya no hay chorros de acuarela ni noticias.)
+- `galeria.html` — 4 secciones por técnica: **Acuarela / Óleo / Grabado / Vidrio y cerámica**,
+  con medidas, año y precio. Al dar clic se abre la ficha (lightbox) con año, técnica, medidas,
+  precio, disponibilidad y botón "Preguntar por esta obra" que abre WhatsApp con el título.
+  Las secciones sin obra llevan `<p class="tecnica__soon">Próximamente</p>`.
+- `eventos.html` — exposición Identidad Íntima (Helena Café, 5 de septiembre).
+- `sobre-mi.html` (bio + foto), `contacto.html` ("Hablemos" + WhatsApp / correo / Instagram).
+- `styles.css` y `script.js` — diseño nuevo. El JS trae: menú de celular a pantalla completa
+  (quita el backdrop-filter al abrir, si no queda encerrado en la barra), aparición fade-up
+  que NO depende del scroll, ficha de obra y botón flotante de WhatsApp (abajo-derecha).
+- `anterior/` — copia completa del sitio viejo (incluye `noticias.html`), bloqueada en
+  robots.txt. Es el respaldo visible: cecybau.com/anterior/.
+- Obra publicada: Acuarela 1 · Óleo 6 · Grabado 3. Fotos en `images/obras/`
+  (las 24 obras viejas siguen ahí por si las pide de vuelta).
 
 ## Reglas del contenido
 - **Marca**: "Cecilia Bautista" (nombre completo, lo prefiere; NO "Cecy Bau" en textos).
