@@ -111,15 +111,15 @@ a{ color:inherit; text-decoration:none; }
 
 /* Portada: solo el nombre, ocupando toda la primera pantalla */
 .portada{
-  /* Un poco menos de una pantalla: así asoma la obra de abajo e invita a bajar */
-  min-height:calc(74svh - 92px);
+  /* Compacta: el nombre con su aire, pero dejando lugar a la obra completa */
+  min-height:clamp(210px,31svh,330px);
   max-width:var(--maxw); margin-inline:auto;
-  padding:clamp(30px,7vh,80px) var(--gut) clamp(20px,3vh,40px);
+  padding:clamp(26px,5vh,64px) var(--gut) clamp(16px,2.5vh,32px);
   display:flex; flex-direction:column; justify-content:center;
 }
 
-/* La primera obra arranca pegadita a la portada, para que se alcance a ver */
-#obra{ padding-top:clamp(20px,3vh,44px); }
+/* La primera obra se ve completa en la primera pantalla, rodeada de blanco */
+#obra{ padding-block:clamp(18px,3vh,40px) clamp(60px,10vh,130px); }
 .portada__baja{
   margin-top:auto; align-self:flex-start;
   display:inline-flex; align-items:center; gap:12px;
@@ -137,7 +137,13 @@ a{ color:inherit; text-decoration:none; }
 
 /* Una sola obra en el inicio */
 .obra-unica{ margin:0 auto; max-width:760px; cursor:zoom-in; }
-.obra-unica img{ width:100%; box-shadow:0 24px 60px -34px rgba(0,0,0,.28); transition:opacity .4s var(--ease); }
+.obra-unica img{
+  /* Se ve entera, nunca cortada por la orilla de la pantalla */
+  display:block; margin-inline:auto;
+  width:auto; max-width:100%;
+  max-height:min(50svh, 520px);
+  box-shadow:0 24px 60px -34px rgba(0,0,0,.28); transition:opacity .4s var(--ease);
+}
 .obra-unica:hover img{ opacity:.9; }
 .obra-unica .hero__cap{ text-align:center; }
 
