@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cecilia Bautista — Artista</title>
+  <meta name="description" content="Cecilia Bautista — artista visual. Acuarela, óleo, grabado, vidrio y cerámica. Obra original y contacto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cecilia Bautista" />
+  <meta property="og:title" content="Cecilia Bautista — Artista visual" />
+  <meta property="og:description" content="Obra original en acuarela, óleo, grabado, vidrio y cerámica. Piezas disponibles con envío en México." />
+  <meta property="og:image" content="https://www.cecybau.com/images/obras/abriendo-la-noche.jpg" />
+  <meta property="og:url" content="https://www.cecybau.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav nav--home">
+    <a class="nav__brand" href="index.html">Cecilia Bautista</a>
+    <nav class="nav__links">
+      <a href="index.html" class="is-active">Inicio</a>
+      <a href="galeria.html">Galería</a>
+      <a href="eventos.html">Eventos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+
+    <!-- Chorros de pintura acuarela -->
+    <div class="drips" aria-hidden="true">
+      <span class="drip" style="--x:6%;  --w:11px; --len:34vh; --c:#c47a6d; --d:.05s; --t:2.4s; --dd:1.6s"></span>
+      <span class="drip" style="--x:15%; --w:8px;  --len:22vh; --c:#d9a441; --d:.35s; --t:2.0s; --dd:3.1s"></span>
+      <span class="drip" style="--x:24%; --w:14px; --len:44vh; --c:#7fa99b; --d:.15s; --t:2.8s; --dd:2.3s"></span>
+      <span class="drip" style="--x:34%; --w:9px;  --len:28vh; --c:#a58fbf; --d:.55s; --t:2.2s; --dd:4.0s"></span>
+      <span class="drip" style="--x:47%; --w:12px; --len:52vh; --c:#c47a6d; --d:.25s; --t:3.0s; --dd:1.9s"></span>
+      <span class="drip" style="--x:58%; --w:8px;  --len:24vh; --c:#6f9fc4; --d:.6s;  --t:2.1s; --dd:3.6s"></span>
+      <span class="drip" style="--x:68%; --w:13px; --len:40vh; --c:#d9a441; --d:.1s;  --t:2.7s; --dd:2.7s"></span>
+      <span class="drip" style="--x:78%; --w:10px; --len:30vh; --c:#7fa99b; --d:.45s; --t:2.3s; --dd:1.3s"></span>
+      <span class="drip" style="--x:88%; --w:12px; --len:46vh; --c:#a58fbf; --d:.2s;  --t:2.9s; --dd:3.3s"></span>
+      <span class="drip" style="--x:94%; --w:8px;  --len:20vh; --c:#6f9fc4; --d:.7s;  --t:2.0s; --dd:2.1s"></span>
+    </div>
+
+    <div class="hero__inner">
+      <p class="eyebrow">artista visual</p>
+      <h1 class="name">Cecilia&nbsp;Bautista</h1>
+      <p class="tagline">Acuarela · Óleo · Grabado · Vidrio y cerámica</p>
+      <p class="hero__pitch">Obra original disponible, con envío a todo México</p>
+      <a class="btn hero__cta" href="galeria.html">Ver obra disponible</a>
+      <br />
+      <a class="hero__scroll" href="#noticias">↓</a>
+    </div>
+  </main>
+
+  <!-- Noticias recientes -->
+  <section class="home-news" id="noticias">
+    <h2 class="section-title">Noticias</h2>
+    <ul class="news-list">
+      <li>
+        <span class="news-date">Julio 2026</span>
+        <p>¡Bienvenidos! Estreno mi sitio web oficial: aquí encontrarás mi obra multidisciplinaria, con piezas disponibles para adquirir.</p>
+      </li>
+    </ul>
+  </section>
+
+  <footer class="foot foot--static">
+    <span>&copy; <span id="year"></span> Cecilia Bautista &nbsp;·&nbsp; <a class="ig" href="https://www.instagram.com/ceci_ly/" target="_blank" rel="noopener"><svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor" stroke="none"/></svg>Instagram @ceci_ly</a></span>
+  </footer>
+  <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

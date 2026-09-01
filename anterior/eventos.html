@@ -7,7 +7,7 @@
   <meta name="description" content="Próxima exposición de Cecilia Bautista: Identidad Íntima, colectiva en Helena Café, CDMX. Inauguración sábado 5 de septiembre." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cecilia Bautista" />
   <meta property="og:title" content="Eventos — Cecilia Bautista" />
@@ -19,12 +19,12 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="page">
 
-  <header class="site-nav" id="nav">
-    <a class="brand" href="index.html">Cecilia Bautista</a>
-    <button class="nav-toggle" aria-label="Menú" aria-expanded="false">☰</button>
-    <nav class="nav-links">
+  <header class="nav">
+    <a class="nav__brand" href="index.html">Cecilia Bautista</a>
+    <nav class="nav__links">
+      <a href="index.html">Inicio</a>
       <a href="galeria.html">Galería</a>
       <a href="eventos.html" class="is-active">Eventos</a>
       <a href="sobre-mi.html">Sobre mí</a>
@@ -32,38 +32,33 @@
     </nav>
   </header>
 
-  <main class="wrap section" style="padding-top:clamp(40px,7vh,90px)">
-    <h1 class="section__head">Próxima exposición</h1>
+  <main class="wrap wrap--narrow center">
+    <h1 class="page-title">Eventos y talleres</h1>
+    <p class="page-sub">Próxima exposición</p>
 
-    <article class="evento reveal">
+    <article class="evento">
       <img class="evento__cartel" src="/images/eventos/identidad-intima.jpg" alt="Cartel de la exposición colectiva Identidad Íntima — México, la patria día a día, en Helena Café" />
       <h2 class="evento__titulo">Identidad Íntima</h2>
       <p class="evento__sub">México, la patria día a día</p>
       <p class="evento__meta">Exposición colectiva · Curada por Fermín Ferrer</p>
-
       <dl class="evento__datos">
         <dt>Inauguración</dt>
         <dd>Sábado 5 de septiembre, 5:00 pm</dd>
         <dt>Sede</dt>
         <dd>Helena Café<br />Av. Col. del Valle 233, Col. Del Valle Centro, Benito Juárez, CDMX</dd>
       </dl>
-
       <p class="evento__nota">Participo junto a Lesly Romero, Abraham Galicia, Oscar Martínez, Sofía Ríos, Ángel Vertiz, Luis Fernando Mancilla, Susana Kuri, Juan Ramón Santibáñez, Alondra Vitae, Craig Mallinson y Antonino Sierra.</p>
       <p class="evento__nota">Con el apoyo de COMA (Contemporary Mexican Art) y Helena.</p>
-
-      <p class="evento__nota" style="margin-top:34px">¿Quieres enterarte de mis próximas exposiciones y talleres? <a class="btn-line" href="contacto.html" style="margin-left:6px">Escríbeme</a></p>
     </article>
+
+    <div class="empty-state">
+      <p>¿Quieres enterarte de mis próximas exposiciones y talleres? <a href="contacto.html">Escríbeme</a> y te aviso personalmente.</p>
+    </div>
   </main>
 
-  <footer class="site-foot">
-    <span class="foot-name">Cecilia Bautista</span>
-    <span>Ciudad de México</span>
-    <span class="foot-links">
-      <a href="https://www.instagram.com/ceci_ly/" target="_blank" rel="noopener"><svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor" stroke="none"/></svg>@ceci_ly</a>
-      <a href="contacto.html">Contacto</a>
-    </span>
+  <footer class="foot foot--static">
+    <span>&copy; <span id="year"></span> Cecilia Bautista &nbsp;·&nbsp; <a class="ig" href="https://www.instagram.com/ceci_ly/" target="_blank" rel="noopener"><svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor" stroke="none"/></svg>Instagram @ceci_ly</a></span>
   </footer>
-
   <script src="script.js"></script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
