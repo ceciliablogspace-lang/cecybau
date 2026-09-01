@@ -111,11 +111,15 @@ a{ color:inherit; text-decoration:none; }
 
 /* Portada: solo el nombre, ocupando toda la primera pantalla */
 .portada{
-  min-height:calc(100svh - 92px);
+  /* Un poco menos de una pantalla: así asoma la obra de abajo e invita a bajar */
+  min-height:calc(74svh - 92px);
   max-width:var(--maxw); margin-inline:auto;
-  padding:clamp(40px,10vh,120px) var(--gut) clamp(28px,5vh,60px);
+  padding:clamp(30px,7vh,80px) var(--gut) clamp(20px,3vh,40px);
   display:flex; flex-direction:column; justify-content:center;
 }
+
+/* La primera obra arranca pegadita a la portada, para que se alcance a ver */
+#obra{ padding-top:clamp(20px,3vh,44px); }
 .portada__baja{
   margin-top:auto; align-self:flex-start;
   display:inline-flex; align-items:center; gap:12px;
