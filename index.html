@@ -18,8 +18,115 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="canonical" href="https://www.cecybau.com/" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Cecilia Bautista",
+  "jobTitle": "Artista visual",
+  "url": "https://www.cecybau.com/",
+  "image": "https://www.cecybau.com/images/cecilia.jpg",
+  "email": "ceciliablogspace@gmail.com",
+  "sameAs": [
+    "https://www.instagram.com/ceci_ly/"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ciudad de México",
+    "addressCountry": "MX"
+  },
+  "knowsAbout": [
+    "Acuarela",
+    "Óleo",
+    "Grabado",
+    "Vidrio",
+    "Cerámica"
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Identidad Íntima — México, la patria día a día",
+  "startDate": "2026-09-05T17:00:00-06:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "image": "https://www.cecybau.com/images/eventos/identidad-intima.jpg",
+  "url": "https://www.cecybau.com/eventos.html",
+  "description": "Exposición colectiva curada por Fermín Ferrer, con obra de Cecilia Bautista.",
+  "location": {
+    "@type": "Place",
+    "name": "Helena Café",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Col. del Valle 233, Col. Del Valle Centro",
+      "addressLocality": "Benito Juárez",
+      "addressRegion": "Ciudad de México",
+      "addressCountry": "MX"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "COMA — Contemporary Mexican Art"
+  },
+  "performer": [
+    {
+      "@type": "Person",
+      "name": "Lesly Romero"
+    },
+    {
+      "@type": "Person",
+      "name": "Abraham Galicia"
+    },
+    {
+      "@type": "Person",
+      "name": "Oscar Martínez"
+    },
+    {
+      "@type": "Person",
+      "name": "Sofía Ríos"
+    },
+    {
+      "@type": "Person",
+      "name": "Ángel Vertiz"
+    },
+    {
+      "@type": "Person",
+      "name": "Luis Fernando Mancilla"
+    },
+    {
+      "@type": "Person",
+      "name": "Susana Kuri"
+    },
+    {
+      "@type": "Person",
+      "name": "Cecilia Bautista"
+    },
+    {
+      "@type": "Person",
+      "name": "Juan Ramón Santibáñez"
+    },
+    {
+      "@type": "Person",
+      "name": "Alondra Vitae"
+    },
+    {
+      "@type": "Person",
+      "name": "Craig Mallinson"
+    },
+    {
+      "@type": "Person",
+      "name": "Antonino Sierra"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
+
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
 
   <header class="site-nav" id="nav">
     <a class="brand" href="index.html">Cecilia Bautista</a>
@@ -33,7 +140,7 @@
   </header>
 
   <!-- PORTADA: solo el nombre sobre el blanco -->
-  <section class="portada">
+  <section class="portada" id="contenido">
     <div>
       <h1 class="hero__name">Cecilia Bautista</h1>
       <p class="hero__sub">Artista visual · Ciudad de México</p>
@@ -46,8 +153,8 @@
             data-lb data-title="La cosecha" data-year="2025"
             data-medium="Grabado" data-size="33 × 25 cm"
             data-status="Disponible">
-      <img src="/images/obras/la-cosecha-enmarcada.jpg"
-           alt="La cosecha — grabado en negro de una mujer de trenza hincada cosechando una mata de maíz, enmarcado en madera clara" />
+      <img src="/images/obras/la-cosecha-enmarcada.jpg" fetchpriority="high" decoding="async"
+           alt="La cosecha — grabado en negro de una mujer de trenza hincada cosechando una mata de maíz, enmarcado en madera clara" width="1254" height="1254" />
       <figcaption class="hero__cap"><b>La cosecha</b> &nbsp;·&nbsp; Grabado &nbsp;·&nbsp; 2025</figcaption>
     </figure>
 
@@ -63,7 +170,7 @@
               data-lb data-title="Oponente" data-year="2024"
               data-medium="Técnica mixta: pastel y acuarela" data-size="62 × 44 cm"
               data-status="Disponible">
-        <img src="/images/obras/oponente-enmarcada.jpg" alt="Oponente — pastel y acuarela de una mujer de lentes con un libro frente a una máscara de luchador" loading="lazy" />
+        <img src="/images/obras/oponente-enmarcada.jpg" alt="Oponente — pastel y acuarela de una mujer de lentes con un libro frente a una máscara de luchador" loading="lazy" width="1045" height="1506" />
         <figcaption class="piece__meta">
           <div class="piece__title">Oponente</div>
           <div class="piece__year">Pastel y acuarela · 2024</div>
@@ -75,7 +182,7 @@
                 data-lb data-title="Persiguiendo el tiempo" data-year="2024"
                 data-medium="Óleo" data-size="20 × 20 cm"
                 data-status="Disponible">
-          <img src="/images/obras/persiguiendo-el-tiempo.jpg" alt="Persiguiendo el tiempo — óleo de un conejo blanco de saco rojo junto a un gran reloj dorado" loading="lazy" />
+          <img src="/images/obras/persiguiendo-el-tiempo.jpg" alt="Persiguiendo el tiempo — óleo de un conejo blanco de saco rojo junto a un gran reloj dorado" loading="lazy" width="1254" height="1254" />
           <figcaption class="piece__meta">
             <div class="piece__title">Persiguiendo el tiempo</div>
             <div class="piece__year">Óleo · 2024</div>
@@ -85,7 +192,7 @@
                 data-lb data-title="Remedio y defensa" data-year="2025"
                 data-medium="Óleo sobre fibra vegetal" data-size="20 × 25 cm"
                 data-status="Disponible">
-          <img src="/images/obras/remedio-y-defensa.jpg" alt="Remedio y defensa — óleo sobre fibra vegetal tejida de una figura con máscara de cebra sobre fondo rojo" loading="lazy" />
+          <img src="/images/obras/remedio-y-defensa.jpg" alt="Remedio y defensa — óleo sobre fibra vegetal tejida de una figura con máscara de cebra sobre fondo rojo" loading="lazy" width="621" height="491" />
           <figcaption class="piece__meta">
             <div class="piece__title">Remedio y defensa</div>
             <div class="piece__year">Óleo sobre fibra vegetal · 2025</div>
@@ -97,7 +204,7 @@
               data-lb data-title="Torito" data-year="2025"
               data-medium="Óleo sobre lienzo" data-size="20 × 22 cm"
               data-status="Disponible">
-        <img src="/images/obras/torito-oleo.jpg" alt="Torito — óleo de un torito de fuego azul sobre un mantel de rombos, con fondo de flores bordadas" loading="lazy" />
+        <img src="/images/obras/torito-oleo.jpg" alt="Torito — óleo de un torito de fuego azul sobre un mantel de rombos, con fondo de flores bordadas" loading="lazy" width="1211" height="1299" />
         <figcaption class="piece__meta">
           <div class="piece__title">Torito</div>
           <div class="piece__year">Óleo sobre lienzo · 2025</div>
@@ -116,12 +223,12 @@
     <h2 class="section__head">Próxima exposición</h2>
     <div class="about-teaser reveal">
       <div class="about-teaser__photo">
-        <img src="/images/eventos/identidad-intima.jpg" alt="Cartel de la exposición colectiva Identidad Íntima — México, la patria día a día" loading="lazy" />
+        <img src="/images/eventos/identidad-intima.jpg" alt="Cartel de la exposición colectiva Identidad Íntima — México, la patria día a día" loading="lazy" width="693" height="879" />
       </div>
       <div class="about-teaser__body">
         <h2>Identidad Íntima</h2>
         <p><i>México, la patria día a día.</i> Exposición colectiva curada por Fermín Ferrer.</p>
-        <p>Inauguración el sábado 5 de septiembre a las 5:00 pm, en Helena Café, Col. Del Valle Centro, CDMX.</p>
+        <p>Inauguración el <time datetime="2026-09-05T17:00:00-06:00">sábado 5 de septiembre de 2026</time> a las 5:00 pm, en Helena Café, Col. Del Valle Centro, CDMX.</p>
         <a class="btn-line" href="eventos.html">Ver los datos</a>
       </div>
     </div>
@@ -132,7 +239,7 @@
     <h2 class="section__head">Sobre mí</h2>
     <div class="about-teaser reveal">
       <div class="about-teaser__photo">
-        <img src="/images/cecilia.jpg" alt="Retrato de Cecilia Bautista" loading="lazy" />
+        <img src="/images/cecilia.jpg" alt="Retrato de Cecilia Bautista" loading="lazy" width="512" height="512" />
       </div>
       <div class="about-teaser__body">
         <h2>Cecilia Bautista</h2>

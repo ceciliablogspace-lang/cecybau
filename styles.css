@@ -6,8 +6,10 @@
 :root{
   --bg:      #fdfcfa;   /* blanco cálido casi imperceptible */
   --ink:     #1b1a18;   /* negro carbón */
-  --muted:   #8a857e;   /* gris para años / metadatos */
-  --faint:   #b7b2aa;   /* aún más tenue */
+  /* Grises cálidos, ya con contraste AA sobre el fondo (WCAG 2.1, texto normal):
+     --muted 5.2:1 · --faint 4.7:1. Antes eran 3.6:1 y 2.1:1. */
+  --muted:   #6f6a63;   /* gris para años / metadatos */
+  --faint:   #77726a;   /* aún más tenue */
   --line:    #e7e3dc;   /* hairline */
   --maxw:    1320px;
   --gut:     clamp(20px, 5vw, 64px);
@@ -376,10 +378,14 @@ a{ color:inherit; text-decoration:none; }
 .lb{
   position:fixed; inset:0; z-index:100;
   background:color-mix(in srgb, var(--bg) 94%, #000 6%);
-  display:flex; opacity:0; visibility:hidden;
-  transition:opacity .35s var(--ease), visibility .35s var(--ease);
+  /* El atributo [hidden] es el que la saca del todo (y del orden de tabulación);
+     aquí solo queda el desvanecido. No usamos visibility: mientras se anima
+     impide enfocar el diálogo al abrirlo. */
+  display:flex; opacity:0;
+  transition:opacity .35s var(--ease);
 }
-.lb.open{ opacity:1; visibility:visible; }
+.lb.open{ opacity:1; }
+.lb[hidden]{ display:none; }   /* fuera del orden de tabulación por completo */
 .lb__inner{
   margin:auto; max-width:1200px; width:100%;
   padding:clamp(50px,8vh,90px) var(--gut) 60px;
@@ -459,4 +465,82 @@ a{ color:inherit; text-decoration:none; }
 
   .lb__inner{ grid-template-columns:1fr; gap:26px; padding-top:70px; }
   .lb__img img{ max-height:60vh; }
+}
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+/* Foco visible y elegante: solo aparece al navegar con teclado */
+:where(a, button, [tabindex]):focus-visible{
+  outline:2px solid var(--ink);
+  outline-offset:3px;
+  border-radius:2px;
+}
+/* Sobre fondo oscuro (ficha ampliada) el contorno va en claro */
+.lb :where(a, button):focus-visible{
+  outline-color:#fdfcfa;
+}
+
+/* Salto rápido al contenido, solo visible con teclado */
+.skip-link{
+  position:absolute; left:-9999px; top:0; z-index:200;
+  background:var(--bg); color:var(--ink);
+  font-family:"Inter", sans-serif; font-size:13px;
+  padding:12px 18px; border:1px solid var(--ink);
+}
+.skip-link:focus{ left:var(--gut); top:12px; }
+
+/* Solo para lectores de pantalla */
+.vh{
+  position:absolute !important; width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
+}
+
+/* =========================================================
+   GALERÍA: botón "Ver detalles" y filtros
+   ========================================================= */
+.obra__ver{
+  display:inline-block; margin-top:10px;
+  font-family:"Inter", sans-serif; font-size:11.5px;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink); background:none;
+  border:0; border-bottom:1px solid var(--line);
+  padding:0 0 4px; cursor:pointer;
+  transition:border-color .25s var(--ease), opacity .25s var(--ease);
+}
+.obra__ver:hover{ border-bottom-color:var(--ink); }
+.obra:hover .obra__ver{ border-bottom-color:var(--ink); }
+.obra__ver:active{ opacity:.6; }
+
+/* Filtros por técnica y disponibilidad */
+.filtros{
+  display:flex; flex-wrap:wrap; gap:10px 8px;
+  margin:0 0 clamp(34px,6vh,64px);
+  padding:0; border:0;
+}
+.filtros__label{ padding:0; }
+.filtros__btn{
+  font-family:"Inter", sans-serif; font-size:11.5px;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); background:none;
+  border:1px solid var(--line); border-radius:999px;
+  padding:8px 16px; cursor:pointer;
+  transition:color .25s var(--ease), border-color .25s var(--ease), background-color .25s var(--ease);
+}
+.filtros__btn:hover{ color:var(--ink); border-color:var(--muted); }
+.filtros__btn[aria-pressed="true"]{
+  color:var(--bg); background:var(--ink); border-color:var(--ink);
+}
+.filtros__vacio{
+  font-family:"Inter", sans-serif; font-size:13px; color:var(--muted);
+  margin:0 0 clamp(34px,6vh,64px);
+}
+
+/* =========================================================
+   IMÁGENES: proporción estable para que nada brinque al cargar
+   ========================================================= */
+.obra img, .piece img, .obra-unica img, .evento__cartel{
+  height:auto;
 }
