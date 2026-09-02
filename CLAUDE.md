@@ -46,6 +46,23 @@ Sí quedan embebidas en base64 en el transcript de la sesión:
 Extraerlas de ahí con Python, convertir a JPG (máx 1600 px, calidad 88) y guardar en `images/obras/`.
 No pedirle que las descargue: su celular no tiene espacio y Drive/Google están bloqueados por el proxy de red.
 
+## Al agregar una obra nueva a la galería (importante)
+Cada `<figure class="obra">` necesita, además de la foto:
+- `width` y `height` en el `<img>` (medidas reales del archivo; evitan que la página brinque).
+- Un `<button class="obra__ver" type="button" data-lb-btn aria-label="Ver detalles de TÍTULO">Ver detalles</button>`
+  dentro del `<figcaption>`.
+- Los `data-*` (title, year, medium, size, price, status): de ahí salen la ficha
+  ampliada, el mensaje de WhatsApp y los datos estructurados.
+**Y hay que regenerar el bloque JSON-LD (`ItemList` de `VisualArtwork`) del `<head>` de
+`galeria.html`**, que es estático y se arma leyendo esos mismos `data-*`.
+Los filtros funcionan solos: la sección lleva `data-tecnica="acuarela|oleo|grabado|vidrio"`.
+
+## Accesibilidad ya resuelta (no romper)
+- Grises AA: `--muted #6f6a63` (5.2:1) y `--faint #77726a` (4.7:1) sobre `--bg`. No aclararlos.
+- La ficha ampliada es un diálogo modal con foco atrapado (ver `script.js`). El CSS de `.lb`
+  NO debe usar `visibility` en la transición: impide enfocar el diálogo al abrirlo.
+- Cada página lleva `<link rel="canonical">` absoluto y su JSON-LD.
+
 ## Verificar antes de publicar
 `python3 -m http.server 8899` + Playwright (`executablePath: '/opt/pw-browsers/chromium'`) para revisar en compu y celular antes de hacer push.
 
