@@ -1,5 +1,23 @@
 User-agent: *
 Allow: /
 Disallow: /anterior/
+Disallow: /textos/_plantilla.html
+
+# Motores de IA: acceso permitido para que puedan describir correctamente
+# quién es Cecilia Bautista y cuál es su obra.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
 
 Sitemap: https://www.cecybau.com/sitemap.xml

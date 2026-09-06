@@ -1,0 +1,66 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/images/obras/oponente-enmarcada.jpg",
+      "destination": "/images/obras/oponente-pastel-acuarela-cecilia-bautista-2024.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/obras/torito-oleo.jpg",
+      "destination": "/images/obras/torito-oleo-cecilia-bautista-2025.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/obras/remedio-y-defensa.jpg",
+      "destination": "/images/obras/remedio-y-defensa-oleo-cecilia-bautista-2025.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/obras/persiguiendo-el-tiempo.jpg",
+      "destination": "/images/obras/persiguiendo-el-tiempo-oleo-cecilia-bautista-2024.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/obras/musica-y-viento-i.jpg",
+      "destination": "/images/obras/musica-y-viento-i-oleo-cecilia-bautista-2026.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/obras/abriendo-la-noche.jpg",
+      "destination": "/images/obras/abriendo-la-noche-oleo-cecilia-bautista-2026.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/obras/musica-y-viento-ii.jpg",
+      "destination": "/images/obras/musica-y-viento-ii-oleo-cecilia-bautista-2026.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/obras/torito.jpg",
+      "destination": "/images/obras/torito-grabado-cecilia-bautista-2025.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/obras/la-cosecha-enmarcada.jpg",
+      "destination": "/images/obras/la-cosecha-grabado-cecilia-bautista-2025.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/obras/burrito-enmarcado.jpg",
+      "destination": "/images/obras/burrito-grabado-cecilia-bautista-2025.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/cecilia.jpg",
+      "destination": "/images/cecilia-bautista-artista-visual.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/eventos/identidad-intima.jpg",
+      "destination": "/images/eventos/identidad-intima-exposicion-cecilia-bautista-2026.jpg",
+      "permanent": true
+    }
+  ]
+}

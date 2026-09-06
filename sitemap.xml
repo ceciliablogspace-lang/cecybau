@@ -5,38 +5,98 @@
     <loc>https://www.cecybau.com/</loc>
     <lastmod>2026-09-02</lastmod>
     <priority>1.0</priority>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/la-cosecha-enmarcada.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/la-cosecha-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.cecybau.com/galeria.html</loc>
     <lastmod>2026-09-02</lastmod>
     <priority>0.9</priority>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/oponente-enmarcada.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/torito-oleo.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/remedio-y-defensa.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/persiguiendo-el-tiempo.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/musica-y-viento-i.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/abriendo-la-noche.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/musica-y-viento-ii.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/torito.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/la-cosecha-enmarcada.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.cecybau.com/images/obras/burrito-enmarcado.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://www.cecybau.com/eventos.html</loc>
-    <lastmod>2026-09-02</lastmod>
-    <priority>0.8</priority>
-    <image:image><image:loc>https://www.cecybau.com/images/eventos/identidad-intima.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/oponente-pastel-acuarela-cecilia-bautista-2024.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/torito-oleo-cecilia-bautista-2025.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/remedio-y-defensa-oleo-cecilia-bautista-2025.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/persiguiendo-el-tiempo-oleo-cecilia-bautista-2024.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/musica-y-viento-i-oleo-cecilia-bautista-2026.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/abriendo-la-noche-oleo-cecilia-bautista-2026.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/musica-y-viento-ii-oleo-cecilia-bautista-2026.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/torito-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/la-cosecha-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/burrito-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.cecybau.com/sobre-mi.html</loc>
     <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/cecilia-bautista-artista-visual.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/eventos.html</loc>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.7</priority>
-    <image:image><image:loc>https://www.cecybau.com/images/cecilia.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/eventos/identidad-intima-exposicion-cecilia-bautista-2026.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.cecybau.com/contacto.html</loc>
     <lastmod>2026-09-02</lastmod>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/oponente.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/oponente-pastel-acuarela-cecilia-bautista-2024.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/torito-oleo.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/torito-oleo-cecilia-bautista-2025.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/remedio-y-defensa.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/remedio-y-defensa-oleo-cecilia-bautista-2025.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/persiguiendo-el-tiempo.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/persiguiendo-el-tiempo-oleo-cecilia-bautista-2024.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/musica-y-viento-i.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/musica-y-viento-i-oleo-cecilia-bautista-2026.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/abriendo-la-noche.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/abriendo-la-noche-oleo-cecilia-bautista-2026.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/musica-y-viento-ii.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/musica-y-viento-ii-oleo-cecilia-bautista-2026.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/torito-grabado.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/torito-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/la-cosecha.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/la-cosecha-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/burrito.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/burrito-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
   </url>
 </urlset>
