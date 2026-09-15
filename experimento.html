@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Cecilia Bautista — versión experimental</title>
+  <meta name="description" content="Versión experimental del sitio de Cecilia Bautista: tinta viva, obra que se deforma al pasar y tipografía en movimiento." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="experimento.css" />
+</head>
+<body>
+
+<a class="skip" href="#obra">Saltar a la obra</a>
+
+<canvas id="tinta" aria-hidden="true"></canvas>
+<canvas id="lienzo" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <a class="nav__marca" href="/experimento.html">Cecilia Bautista</a>
+  <nav class="nav__links">
+    <a href="#obra">Obra</a>
+    <a href="#sobre">Sobre mí</a>
+    <a href="/" class="nav__salida">Sitio normal ↗</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <p class="hero__sobre">Artista visual · Ciudad de México</p>
+    <h1 class="hero__nombre" data-split>Cecilia Bautista</h1>
+    <p class="hero__linea">Óleo, acuarela, grabado, cerámica y vidrio<br />en torno a la memoria y el duelo.</p>
+    <p class="hero__pista"><span>Mueve el dedo sobre la pantalla</span></p>
+    <div class="hero__scroll" aria-hidden="true"><span></span></div>
+  </section>
+
+  <section class="obra" id="obra">
+    <h2 class="seccion__titulo"><span>Obra</span></h2>
+
+    <div class="rejilla">
+
+      <figure class="pieza pieza--alta" data-tecnica="Óleo">
+        <div class="pieza__marco">
+          <img data-gl src="/images/obras/torito-oleo-cecilia-bautista-2025.jpg" alt="Torito — óleo de un torito de fuego azul sobre un mantel de rombos" width="1211" height="1299" />
+        </div>
+        <figcaption><b>Torito</b><i>Óleo sobre lienzo · 2025</i></figcaption>
+      </figure>
+
+      <figure class="pieza" data-tecnica="Óleo">
+        <div class="pieza__marco">
+          <img data-gl src="/images/obras/musica-y-viento-i-oleo-cecilia-bautista-2026.jpg" alt="Música y viento I — óleo de un músico de azul cargando una tuba" width="1122" height="1402" />
+        </div>
+        <figcaption><b>Música y viento I</b><i>Óleo sobre lienzo · 2026</i></figcaption>
+      </figure>
+
+      <figure class="pieza pieza--ancha" data-tecnica="Óleo">
+        <div class="pieza__marco">
+          <img data-gl src="/images/obras/abriendo-la-noche-oleo-cecilia-bautista-2026.jpg" alt="Abriendo la noche — óleo de una trombonista frente a un telón rojo" width="1254" height="1254" />
+        </div>
+        <figcaption><b>Abriendo la noche</b><i>Óleo sobre cartón · 2026</i></figcaption>
+      </figure>
+
+      <figure class="pieza" data-tecnica="Acuarela">
+        <div class="pieza__marco">
+          <img data-gl src="/images/obras/oponente-pastel-acuarela-cecilia-bautista-2024.jpg" alt="Oponente — pastel y acuarela de una mujer de lentes frente a una máscara de luchador" width="1045" height="1506" />
+        </div>
+        <figcaption><b>Oponente</b><i>Pastel y acuarela · 2024</i></figcaption>
+      </figure>
+
+      <figure class="pieza pieza--alta" data-tecnica="Grabado">
+        <div class="pieza__marco">
+          <img data-gl src="/images/obras/la-cosecha-grabado-cecilia-bautista-2025.jpg" alt="La cosecha — grabado de una mujer de trenza cosechando maíz" width="1254" height="1254" />
+        </div>
+        <figcaption><b>La cosecha</b><i>Grabado · 2025</i></figcaption>
+      </figure>
+
+      <figure class="pieza" data-tecnica="Óleo">
+        <div class="pieza__marco">
+          <img data-gl src="/images/obras/persiguiendo-el-tiempo-oleo-cecilia-bautista-2024.jpg" alt="Persiguiendo el tiempo — óleo de un conejo blanco junto a un reloj dorado" width="1254" height="1254" />
+        </div>
+        <figcaption><b>Persiguiendo el tiempo</b><i>Óleo · 2024</i></figcaption>
+      </figure>
+
+      <figure class="pieza pieza--ancha" data-tecnica="Grabado">
+        <div class="pieza__marco">
+          <img data-gl src="/images/obras/torito-grabado-cecilia-bautista-2025.jpg" alt="Torito — grabado de un torito de fuego sobre fondo amarillo" width="1116" height="1410" />
+        </div>
+        <figcaption><b>Torito</b><i>Grabado y stencil · 2025</i></figcaption>
+      </figure>
+
+      <figure class="pieza" data-tecnica="Óleo">
+        <div class="pieza__marco">
+          <img data-gl src="/images/obras/remedio-y-defensa-oleo-cecilia-bautista-2025.jpg" alt="Remedio y defensa — óleo sobre fibra vegetal de una figura con máscara de cebra" width="621" height="491" />
+        </div>
+        <figcaption><b>Remedio y defensa</b><i>Óleo sobre fibra vegetal · 2025</i></figcaption>
+      </figure>
+
+    </div>
+
+    <p class="obra__pie">
+      <a class="enlace" href="/galeria.html">Ver la galería completa, con medidas y precios ↗</a>
+    </p>
+  </section>
+
+  <section class="sobre" id="sobre">
+    <h2 class="seccion__titulo"><span>Sobre mí</span></h2>
+    <p class="sobre__texto" data-lineas>
+      Soy arquitecta de formación y pinto desde antes de saberlo. Trabajo el óleo, la acuarela,
+      el grabado, la cerámica y el vidrio buscando lo mismo en todos: lo que queda de una persona
+      cuando ya no está, y la forma en que México celebra a sus muertos con fuego y con música.
+    </p>
+    <p class="sobre__firma">Cecilia Bautista · Ciudad de México</p>
+  </section>
+
+  <footer class="pie">
+    <a class="pie__cta" href="https://wa.me/525525228756" target="_blank" rel="noopener">Hablemos por WhatsApp</a>
+    <div class="pie__links">
+      <a href="https://www.instagram.com/ceci_ly/" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:ceciliablogspace@gmail.com">Correo</a>
+      <a href="/">Sitio normal</a>
+    </div>
+    <p class="pie__nota">Página de prueba. El sitio de siempre sigue igual en <a href="/">cecybau.com</a>.</p>
+  </footer>
+
+</main>
+
+<script src="experimento.js" defer></script>
+</body>
+</html>

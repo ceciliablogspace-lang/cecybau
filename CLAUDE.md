@@ -66,6 +66,16 @@ Los filtros funcionan solos: la sección lleva `data-tecnica="acuarela|oleo|grab
 ## Verificar antes de publicar
 `python3 -m http.server 8899` + Playwright (`executablePath: '/opt/pw-browsers/chromium'`) para revisar en compu y celular antes de hacer push.
 
+## Versión experimental (prueba, septiembre 2026)
+`experimento.html` + `experimento.css` + `experimento.js` — página aparte, `noindex`,
+NO toca el sitio normal. Cecy pidió algo al estilo activetheory.net.
+Fondo negro, dos lienzos WebGL escritos a mano (sin librerías):
+tinta viva que sigue el dedo en la portada, y las obras dibujadas con shader
+(se deforman al hacer scroll, se iluminan al acercarse). En celular la obra se
+ilumina sola al quedar al centro de la pantalla. Respaldos: si el aparato pide
+menos movimiento o no hay WebGL, se ven las fotos tal cual. **Está a prueba:
+si a ella le gusta se vuelve el sitio principal; si no, se borran los 3 archivos.**
+
 ## Pendientes conocidos
 - Va a subir más obra enmarcada (acuarela, grabado, vidrio y cerámica) — las secciones ya están listas.
 - Los 3 óleos publicados traen marcos distintos (negro grueso / negro con lino / madera clara). Se le sugirió unificar; ella decide.
