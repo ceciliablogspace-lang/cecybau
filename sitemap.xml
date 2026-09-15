@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://www.cecybau.com/galeria.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.9</priority>
     <image:image><image:loc>https://www.cecybau.com/images/obras/oponente-pastel-acuarela-cecilia-bautista-2024.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.cecybau.com/images/obras/torito-oleo-cecilia-bautista-2025.jpg</image:loc></image:image>
@@ -21,6 +21,9 @@
     <image:image><image:loc>https://www.cecybau.com/images/obras/torito-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.cecybau.com/images/obras/la-cosecha-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.cecybau.com/images/obras/burrito-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/luchador-ceramica-cecilia-bautista-2026.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/musica-y-viento-ceramica-cecilia-bautista-2026.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/torito-ceramica-cecilia-bautista-2026.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.cecybau.com/sobre-mi.html</loc>
@@ -98,5 +101,23 @@
     <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <image:image><image:loc>https://www.cecybau.com/images/obras/burrito-grabado-cecilia-bautista-2025.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/luchador-ceramica.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/luchador-ceramica-cecilia-bautista-2026.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/musica-y-viento-ceramica.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/musica-y-viento-ceramica-cecilia-bautista-2026.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.cecybau.com/obra/torito-ceramica.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://www.cecybau.com/images/obras/torito-ceramica-cecilia-bautista-2026.jpg</image:loc></image:image>
   </url>
 </urlset>
