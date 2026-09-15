@@ -27,7 +27,7 @@ fondo blanco cálido #fdfcfa, tinta #1b1a18. Todo en español, con las mismas di
   que NO depende del scroll, ficha de obra y botón flotante de WhatsApp (abajo-derecha).
 - `anterior/` — copia completa del sitio viejo (incluye `noticias.html`), bloqueada en
   robots.txt. Es el respaldo visible: cecybau.com/anterior/.
-- Obra publicada: Acuarela 1 · Óleo 6 · Grabado 3 · Vidrio y cerámica 3 (Luchador $450, Música y viento $450, Torito $500 — precios confirmados por Cecilia, sep 2026; Torito con fondo de arco rosa generado). Fotos en `images/obras/`
+- Obra publicada: Acuarela 1 · Óleo 6 · Grabado 3 · Vidrio y cerámica 3 (Luchador $450, Música y viento $450, Torito $500 — precios confirmados por Cecilia, sep 2026; Torito con foto en altar de cempasúchil). Fotos en `images/obras/`
   (las 24 obras viejas siguen ahí por si las pide de vuelta).
 
 ## Reglas del contenido
