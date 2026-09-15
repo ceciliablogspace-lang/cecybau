@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Cecilia Bautista — entrada experimental</title>
+  <meta name="description" content="Entrada experimental: la obra de Cecilia Bautista armada con partículas de pintura." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="experimento2.css" />
+</head>
+<body>
+
+<canvas id="polvo" aria-hidden="true"></canvas>
+
+<div class="entrada">
+
+  <p class="arriba">Artista visual · Ciudad de México</p>
+
+  <div class="hueco" aria-hidden="true"></div>
+
+  <div class="abajo">
+    <p class="ficha" id="ficha" aria-live="polite">
+      <span class="ficha__titulo">Torito</span>
+      <span class="ficha__dato">Óleo sobre lienzo · 2025</span>
+    </p>
+
+    <h1 class="nombre" data-split>Cecilia Bautista</h1>
+
+    <p class="pista"><span id="pista">La pintura se deshace si la tocas</span></p>
+
+    <nav class="salidas">
+      <a href="/galeria.html">Ver la obra</a>
+      <a href="https://wa.me/525525228756" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="/">Sitio normal</a>
+    </nav>
+  </div>
+
+</div>
+
+<!-- Respaldo: si no hay WebGL se ve la obra tal cual -->
+<noscript>
+  <div class="respaldo">
+    <img src="/images/experimento/torito.jpg" alt="Torito — óleo de un torito de fuego azul, de Cecilia Bautista" />
+  </div>
+</noscript>
+
+<script src="experimento2.js" defer></script>
+</body>
+</html>
