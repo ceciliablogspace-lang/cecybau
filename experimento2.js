@@ -38,7 +38,7 @@
         var s = document.createElement('span');
         s.className = 'ltr';
         s.textContent = ch;
-        s.style.animationDelay = (1.9 + n * 0.04) + 's';
+        s.style.animationDelay = (0.75 + n * 0.03) + 's';
         caja.appendChild(s);
         n++;
       });
@@ -399,22 +399,22 @@
     reloj += dt;
 
     if (fase === 'entrando') {
-      arma = acercar(arma, 1, 1.5, dt);
+      arma = acercar(arma, 1, 3.4, dt);
       nitidez = acercar(nitidez, 0, 9, dt);
-      if (arma > 0.965) { fase = 'nitida'; reloj = 0; }
+      if (arma > 0.95) { fase = 'nitida'; reloj = 0; }
 
     } else if (fase === 'nitida') {
-      arma = acercar(arma, 1, 2.2, dt);
-      /* la foto aparece despacito; los puntos se apagan debajo */
-      nitidez = acercar(nitidez, 1, 2.0, dt);
-      if (reloj > 5.2 && listas > 1) { fase = 'saliendo'; reloj = 0; }
+      arma = acercar(arma, 1, 4.5, dt);
+      /* la foto aparece rápido; los puntos se apagan debajo */
+      nitidez = acercar(nitidez, 1, 5.0, dt);
+      if (reloj > 5.4 && listas > 1) { fase = 'saliendo'; reloj = 0; }
 
     } else {
-      nitidez = acercar(nitidez, 0, 5.5, dt);
+      nitidez = acercar(nitidez, 0, 7.0, dt);
       if (fichaCaja) fichaCaja.classList.add('oculta');
       /* primero se va la foto, y ya que no está, se sueltan los puntos */
-      if (reloj > 0.4) arma = acercar(arma, 0, 3.3, dt);
-      if (reloj > 2.1) {
+      if (reloj > 0.3) arma = acercar(arma, 0, 4.2, dt);
+      if (reloj > 1.5) {
         var siguiente = (actual + 1) % OBRAS.length;
         if (cargadas[siguiente]) {
           actual = siguiente;

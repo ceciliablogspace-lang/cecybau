@@ -87,7 +87,10 @@ Ciclo de tres momentos, en `experimento2.js` (variable `fase`):
 2. `nitida` — **aparece la foto de verdad, nítida**, encima de los puntos
    (`<img id="nitida">`, colocada por JS justo sobre el cuadro con
    `colocarNitida()`), y los puntos se apagan con el uniform `uVelo`.
-   Se queda ~5 s.
+   Se queda ~5 s. **La foto se ve completa a ~1.5 s de abrir la página**
+   (antes tardaba ~3.7 s y Cecilia dijo que la gente no espera tanto):
+   si se vuelven a tocar los ritmos de `acercar()` en la máquina de fases,
+   no pasarse de ahí.
 3. `saliendo` — la foto se va, los puntos se sueltan y entra la siguiente
    obra. Son 4 obras en rotación.
 
