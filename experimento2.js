@@ -401,12 +401,12 @@
     if (fase === 'entrando') {
       arma = acercar(arma, 1, 3.4, dt);
       nitidez = acercar(nitidez, 0, 9, dt);
-      if (arma > 0.95) { fase = 'nitida'; reloj = 0; }
+      if (arma > 0.91) { fase = 'nitida'; reloj = 0; }
 
     } else if (fase === 'nitida') {
       arma = acercar(arma, 1, 4.5, dt);
-      /* la foto aparece rápido; los puntos se apagan debajo */
-      nitidez = acercar(nitidez, 1, 5.0, dt);
+      /* el cruce a la foto: corto, para no dejar esperando a nadie */
+      nitidez = acercar(nitidez, 1, 10.0, dt);
       if (reloj > 5.4 && listas > 1) { fase = 'saliendo'; reloj = 0; }
 
     } else {
@@ -463,8 +463,10 @@
     gl.uniform1f(U.uDedoVivo, dedoVivo);
     gl.uniform1f(U.uPunto, tam);
     gl.uniform1f(U.uGolpe, golpe);
-    /* los puntos se apagan a medida que aparece la foto nítida */
-    gl.uniform1f(U.uVelo, Math.max(0, 1 - nitidez * 1.25));
+    /* Los puntos se apagan exactamente al ritmo que entra la foto. Como
+       están en el mismo lugar, el cruce se ve como si la pintura se
+       enfocara, no como si una imagen tapara a la otra. */
+    gl.uniform1f(U.uVelo, Math.max(0, 1 - nitidez));
 
     gl.drawArrays(gl.POINTS, 0, totalPuntos);
   }
