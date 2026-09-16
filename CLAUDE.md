@@ -99,7 +99,20 @@ Ciclo de tres momentos, en `experimento2.js` (variable `fase`):
 3. `saliendo` — la foto se va, los puntos se sueltan y entra la siguiente
    obra. Son 4 obras en rotación.
 
-Al tocar: la foto se rompe en puntos, estalla y se rearma sola.
+**Los puntos están esparcidos en 3D** (lo pidió ella): cada uno trae su
+propia profundidad (`aAzar.z`), la nube gira sola (`uGiro`) y el dedo la
+inclina (`uParalaje`). Hay perspectiva de verdad (`uFoco`): los de adelante
+salen grandes y los del fondo chicos y más tenues (`aire`).
+**Clave: al armarse la profundidad se va a cero sola**, porque el destino de
+cada punto tiene z = 0. Así el cuadro armado queda perfectamente plano y
+encaja al pixel con la foto nítida que va encima. Si alguna vez el 3D no se
+apaga al final, la foto y los puntos se desalinean.
+Ojo al calibrar: la perspectiva ya abre la nube por su cuenta (multiplica
+`p.xy`), así que subir `uProfundo` o `lejos` la desparrama por toda la
+pantalla y se ve como ruido gris en vez de pigmento.
+
+Al tocar: la foto se rompe en puntos, estalla (también hacia el frente y
+hacia el fondo) y se rearma sola.
 WebGL a mano con `gl.POINTS`, sin librerías. Las animaciones van por
 **tiempo real** (función `acercar`), no por cuadros, para que el ritmo sea
 igual en celular lento que en compu rápida.

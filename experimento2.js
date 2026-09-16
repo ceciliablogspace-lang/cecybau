@@ -82,7 +82,7 @@
   var VS = [
     'attribute vec2 aRejilla;',   /* 0..1 dentro de la obra */
     'attribute vec3 aColor;',
-    'attribute vec2 aAzar;',
+    'attribute vec3 aAzar;',      /* rumbo, distancia y PROFUNDIDAD */
     'uniform vec2 uRes;',
     'uniform vec2 uCuadro;',      /* tamaño del cuadro en pixeles */
     'uniform vec2 uCentro;',
@@ -92,37 +92,60 @@
     'uniform float uDedoVivo;',
     'uniform float uPunto;',
     'uniform float uGolpe;',      /* estallido al tocar */
-    'uniform float uVelo;',       /* 1 puntos visibles, 0 ya mandan la foto */
+    'uniform float uVelo;',       /* 1 puntos visibles, 0 ya manda la foto */
+    'uniform float uFoco;',       /* qué tan marcada va la perspectiva */
+    'uniform float uProfundo;',   /* qué tan hondo se reparte la nube */
+    'uniform float uGiro;',       /* la nube gira sola */
+    'uniform vec2 uParalaje;',    /* el dedo la inclina */
     'varying vec3 vColor;',
     'varying float vAlfa;',
     'void main(){',
-    /* dónde le toca quedarse a este punto */
-    '  vec2 meta=uCentro+(aRejilla-0.5)*uCuadro;',
-    /* de dónde viene: cada punto trae su propio rumbo y distancia */
+    /* El lugar final de este punto, medido desde el centro del cuadro.
+       Ahí la profundidad es CERO: el cuadro armado queda perfectamente
+       plano, para que encaje exacto con la foto nítida que va encima. */
+    '  vec2 rel=(aRejilla-0.5)*uCuadro;',
+    '  vec3 destino=vec3(rel,0.0);',
+    /* De dónde viene: rumbo y distancia propios, y una profundidad propia:
+       unos puntos flotan adelante y otros hasta el fondo. */
     '  float ang=aAzar.x*6.2831853;',
-    '  float lejos=(0.16+aAzar.y*0.72)*max(uRes.x,uRes.y)*0.6;',
-    '  vec2 suelto=meta+vec2(cos(ang),sin(ang))*lejos;',
+    '  float lejos=(0.06+aAzar.y*0.26)*max(uRes.x,uRes.y)*0.40;',
+    '  vec3 fuera=vec3(rel+vec2(cos(ang),sin(ang))*lejos,',
+    '                  (aAzar.z-0.5)*2.0*uProfundo);',
+    /* La nube gira sola sobre su eje, y el dedo la inclina. */
+    '  float gy=uGiro+uParalaje.x*0.5;',
+    '  float gx=uParalaje.y*0.3;',
+    '  float cy=cos(gy), sy=sin(gy);',
+    '  fuera.xz=vec2(fuera.x*cy+fuera.z*sy, -fuera.x*sy+fuera.z*cy);',
+    '  float cx=cos(gx), sx=sin(gx);',
+    '  fuera.yz=vec2(fuera.y*cx-fuera.z*sx, fuera.y*sx+fuera.z*cx);',
     /* cada punto llega a su tiempo: los de abajo tardan un poco más */
     '  float propio=clamp(uArma*1.9-aAzar.y*0.55-aRejilla.y*0.32,0.0,1.0);',
     '  propio=propio*propio*(3.0-2.0*propio);',
-    '  vec2 pos=mix(suelto,meta,propio);',
+    /* Al armarse, la profundidad se va a cero sola: el 3D desaparece justo
+       cuando el cuadro queda plano. */
+    '  vec3 p=mix(fuera,destino,propio);',
+    /* al tocar, todo sale disparado, también hacia el frente y hacia atrás */
+    '  p+=vec3(cos(ang),sin(ang),(aAzar.z-0.5)*2.4)*uGolpe*190.0;',
     /* respiración: nunca se quedan del todo quietos */
     '  float amp=mix(26.0,3.2,propio);',
-    '  pos+=vec2(sin(uTime*0.7+aAzar.x*40.0),cos(uTime*0.62+aAzar.y*37.0))*amp;',
+    '  p.xy+=vec2(sin(uTime*0.7+aAzar.x*40.0),cos(uTime*0.62+aAzar.y*37.0))*amp;',
+    /* Perspectiva: los de adelante se ven grandes, los del fondo chicos.
+       Con profundidad cero esto vale 1 y no mueve nada. */
+    '  float f=uFoco/max(uFoco+p.z,80.0);',
+    '  vec2 pos=uCentro+p.xy*f;',
     /* el dedo aparta la pintura */
     '  vec2 d=pos-uDedo;',
     '  float dist=length(d);',
     '  float radio=mix(90.0,170.0,uDedoVivo);',
     '  float empuje=exp(-dist*dist/(radio*radio))*uDedoVivo;',
     '  pos+=normalize(d+vec2(0.0001))*empuje*115.0;',
-    /* al tocar, todo sale disparado un momento */
-    '  pos+=vec2(cos(ang),sin(ang))*uGolpe*190.0;',
     '  vec2 ndc=vec2(pos.x/uRes.x*2.0-1.0, 1.0-pos.y/uRes.y*2.0);',
     '  gl_Position=vec4(ndc,0.0,1.0);',
-    '  gl_PointSize=uPunto*(1.0+empuje*1.9)*mix(0.6,1.0,propio);',
-    /* mientras vuelan brillan un poco más, como chispa */
+    '  gl_PointSize=min(uPunto*f*(1.0+empuje*1.9)*mix(0.85,1.0,propio),72.0);',
+    /* los del fondo se ven más tenues, como si hubiera aire de por medio */
+    '  float aire=clamp(f*0.95,0.62,1.12);',
     '  vColor=aColor*mix(0.88,1.0,propio)*(1.0-empuje*0.22);',
-    '  vAlfa=mix(0.42,1.0,propio)*uVelo;',
+    '  vAlfa=mix(0.52,1.0,propio)*uVelo*mix(aire,1.0,propio);',
     '}'
   ].join('\n');
 
@@ -171,7 +194,8 @@
     azar: gl.getAttribLocation(prog, 'aAzar')
   };
   var U = {};
-  ['uRes', 'uCuadro', 'uCentro', 'uArma', 'uTime', 'uDedo', 'uDedoVivo', 'uPunto', 'uGolpe', 'uVelo']
+  ['uRes', 'uCuadro', 'uCentro', 'uArma', 'uTime', 'uDedo', 'uDedoVivo', 'uPunto',
+   'uGolpe', 'uVelo', 'uFoco', 'uProfundo', 'uGiro', 'uParalaje']
     .forEach(function (n) { U[n] = gl.getUniformLocation(prog, n); });
 
   gl.enable(gl.BLEND);
@@ -193,14 +217,15 @@
   function armarRejilla(cols, filas) {
     var n = cols * filas;
     var rej = new Float32Array(n * 2);
-    var azar = new Float32Array(n * 2);
+    var azar = new Float32Array(n * 3);   /* rumbo, distancia y profundidad */
     var i = 0;
     for (var y = 0; y < filas; y++) {
       for (var x = 0; x < cols; x++) {
         rej[i * 2] = (x + 0.5) / cols;
         rej[i * 2 + 1] = (y + 0.5) / filas;
-        azar[i * 2] = Math.random();
-        azar[i * 2 + 1] = Math.random();
+        azar[i * 3] = Math.random();
+        azar[i * 3 + 1] = Math.random();
+        azar[i * 3 + 2] = Math.random();
         i++;
       }
     }
@@ -299,14 +324,30 @@
   var dedoVivo = 0, dedoMeta = 0;
   var golpe = 0;
 
+  /* La nube de polvo gira sola sobre su eje, y el dedo la inclina un poco
+     más, como si le dieras vuelta alrededor para verla por otro lado. */
+  var giro = 0;
+  var par = { x: 0, y: 0 };      /* inclinación actual */
+  var parMeta = { x: 0, y: 0 };  /* a dónde va */
+
+  function apuntar(x, y) {
+    dedo.x = x; dedo.y = y; dedoMeta = 1;
+    parMeta.x = (x / Math.max(window.innerWidth, 1) - 0.5) * 2;
+    parMeta.y = (y / Math.max(window.innerHeight, 1) - 0.5) * 2;
+  }
+
   window.addEventListener('pointermove', function (e) {
-    dedo.x = e.clientX; dedo.y = e.clientY; dedoMeta = 1;
+    apuntar(e.clientX, e.clientY);
   }, { passive: true });
-  window.addEventListener('pointerleave', function () { dedoMeta = 0; });
+  window.addEventListener('pointerleave', function () {
+    dedoMeta = 0; parMeta.x = 0; parMeta.y = 0;
+  });
   window.addEventListener('touchmove', function (e) {
-    if (e.touches[0]) { dedo.x = e.touches[0].clientX; dedo.y = e.touches[0].clientY; dedoMeta = 1; }
+    if (e.touches[0]) apuntar(e.touches[0].clientX, e.touches[0].clientY);
   }, { passive: true });
-  window.addEventListener('touchend', function () { dedoMeta = 0; }, { passive: true });
+  window.addEventListener('touchend', function () {
+    dedoMeta = 0; parMeta.x = 0; parMeta.y = 0;
+  }, { passive: true });
 
   /* tocar = estallido */
   function estallar(e) {
@@ -427,6 +468,9 @@
     }
 
     dedoVivo = acercar(dedoVivo, dedoMeta, 5.0, dt);
+    giro += dt * 0.34;
+    par.x = acercar(par.x, parMeta.x, 2.4, dt);
+    par.y = acercar(par.y, parMeta.y, 2.4, dt);
     golpe *= Math.exp(-6.3 * dt);
     if (golpe < 0.002) golpe = 0;
 
@@ -448,7 +492,7 @@
 
     gl.bindBuffer(gl.ARRAY_BUFFER, azarBuf);
     gl.enableVertexAttribArray(A.azar);
-    gl.vertexAttribPointer(A.azar, 2, gl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(A.azar, 3, gl.FLOAT, false, 0, 0);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, obra.buf);
     gl.enableVertexAttribArray(A.color);
@@ -463,6 +507,12 @@
     gl.uniform1f(U.uDedoVivo, dedoVivo);
     gl.uniform1f(U.uPunto, tam);
     gl.uniform1f(U.uGolpe, golpe);
+    /* La hondura de la nube y la fuerza de la perspectiva van en pixeles
+       de pantalla, igual que el resto de las medidas. */
+    gl.uniform1f(U.uFoco, 900 * dpr);
+    gl.uniform1f(U.uProfundo, (chico ? 190 : 270) * dpr);
+    gl.uniform1f(U.uGiro, giro);
+    gl.uniform2f(U.uParalaje, par.x, par.y);
     /* Los puntos se apagan exactamente al ritmo que entra la foto. Como
        están en el mismo lugar, el cruce se ve como si la pintura se
        enfocara, no como si una imagen tapara a la otra. */
