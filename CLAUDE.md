@@ -76,18 +76,32 @@ ilumina sola al quedar al centro de la pantalla. Respaldos: si el aparato pide
 menos movimiento o no hay WebGL, se ven las fotos tal cual. **Está a prueba:
 si a ella le gusta se vuelve el sitio principal; si no, se borran los 3 archivos.**
 
-### Entrada experimental 2 (`experimento2.html`)
+### Entrada experimental 2 (`experimento2.html`) — la que le gustó
 Segunda prueba, **solo la portada**, también `noindex` y también aparte.
-Cada obra se descompone en ~63,000 puntos que traen el color exacto de su
-pintura: llegan volando, arman el cuadro, y se deshacen para armar el
-siguiente (4 obras, cambio cada ~9 s). El dedo o el cursor apartan la
-pintura; al tocar, estalla. WebGL a mano con `gl.POINTS`, sin librerías.
-Las animaciones van por **tiempo real** (función `acercar`), no por cuadros,
-para que el ritmo sea igual en celular lento que en compu rápida.
+**Fondo blanco cálido `#fdfcfa` y tinta `#1b1a18`: los mismos colores de su
+sitio de siempre** (ella pidió fondo blanco, no negro).
+
+Ciclo de tres momentos, en `experimento2.js` (variable `fase`):
+1. `entrando` — ~63,000 puntos con el color exacto de la pintura llegan
+   volando y arman el cuadro.
+2. `nitida` — **aparece la foto de verdad, nítida**, encima de los puntos
+   (`<img id="nitida">`, colocada por JS justo sobre el cuadro con
+   `colocarNitida()`), y los puntos se apagan con el uniform `uVelo`.
+   Se queda ~5 s.
+3. `saliendo` — la foto se va, los puntos se sueltan y entra la siguiente
+   obra. Son 4 obras en rotación.
+
+Al tocar: la foto se rompe en puntos, estalla y se rearma sola.
+WebGL a mano con `gl.POINTS`, sin librerías. Las animaciones van por
+**tiempo real** (función `acercar`), no por cuadros, para que el ritmo sea
+igual en celular lento que en compu rápida.
+
 Usa `images/experimento/*.jpg`: recortes **solo de la pintura** (sin marco ni
 pared), generados con PIL a partir de las fotos originales, que no se tocaron.
 Si agrega obras nuevas hay que recortarlas igual, si no se ve la pared blanca.
-Respaldo: sin WebGL o con "menos movimiento", se ve la obra quieta.
+Respaldo (`.respaldo`): sin WebGL o con "menos movimiento", se ve la obra
+quieta — su `max-height` va en **vh, no en %** (dentro de la rejilla el % no
+se respeta y la foto se desbordaba tapando el nombre).
 
 ## Pendientes conocidos
 - Va a subir más obra enmarcada (acuarela, grabado, vidrio y cerámica) — las secciones ya están listas.

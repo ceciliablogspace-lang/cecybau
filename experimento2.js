@@ -92,6 +92,7 @@
     'uniform float uDedoVivo;',
     'uniform float uPunto;',
     'uniform float uGolpe;',      /* estallido al tocar */
+    'uniform float uVelo;',       /* 1 puntos visibles, 0 ya mandan la foto */
     'varying vec3 vColor;',
     'varying float vAlfa;',
     'void main(){',
@@ -99,7 +100,7 @@
     '  vec2 meta=uCentro+(aRejilla-0.5)*uCuadro;',
     /* de dónde viene: cada punto trae su propio rumbo y distancia */
     '  float ang=aAzar.x*6.2831853;',
-    '  float lejos=(0.25+aAzar.y*1.15)*max(uRes.x,uRes.y)*0.85;',
+    '  float lejos=(0.16+aAzar.y*0.72)*max(uRes.x,uRes.y)*0.6;',
     '  vec2 suelto=meta+vec2(cos(ang),sin(ang))*lejos;',
     /* cada punto llega a su tiempo: los de abajo tardan un poco más */
     '  float propio=clamp(uArma*1.9-aAzar.y*0.55-aRejilla.y*0.32,0.0,1.0);',
@@ -120,8 +121,8 @@
     '  gl_Position=vec4(ndc,0.0,1.0);',
     '  gl_PointSize=uPunto*(1.0+empuje*1.9)*mix(0.6,1.0,propio);',
     /* mientras vuelan brillan un poco más, como chispa */
-    '  vColor=aColor*(1.0+empuje*1.3+(1.0-propio)*0.45);',
-    '  vAlfa=mix(0.17,1.0,propio);',
+    '  vColor=aColor*mix(0.88,1.0,propio)*(1.0-empuje*0.22);',
+    '  vAlfa=mix(0.42,1.0,propio)*uVelo;',
     '}'
   ].join('\n');
 
@@ -170,7 +171,7 @@
     azar: gl.getAttribLocation(prog, 'aAzar')
   };
   var U = {};
-  ['uRes', 'uCuadro', 'uCentro', 'uArma', 'uTime', 'uDedo', 'uDedoVivo', 'uPunto', 'uGolpe']
+  ['uRes', 'uCuadro', 'uCentro', 'uArma', 'uTime', 'uDedo', 'uDedoVivo', 'uPunto', 'uGolpe', 'uVelo']
     .forEach(function (n) { U[n] = gl.getUniformLocation(prog, n); });
 
   gl.enable(gl.BLEND);
@@ -250,7 +251,7 @@
       gl.bindBuffer(gl.ARRAY_BUFFER, buf);
       gl.bufferData(gl.ARRAY_BUFFER, leerColores(img, colsG, filasG), gl.STATIC_DRAW);
 
-      cargadas[idx] = { buf: buf, aspecto: aspecto, titulo: obra.titulo, dato: obra.dato };
+      cargadas[idx] = { buf: buf, aspecto: aspecto, src: obra.src, titulo: obra.titulo, dato: obra.dato };
       listas++;
       if (idx === 0) arrancar();
     };
@@ -311,13 +312,21 @@
   function estallar(e) {
     if (e && e.target && e.target.closest && e.target.closest('a')) return;
     golpe = 1;
+    /* la foto se rompe y vuelve a ser polvo, que se rearma solo */
+    nitidez = 0;
+    arma = 0.3;
+    fase = 'entrando';
+    reloj = 0;
     if (pista) pista.textContent = 'Otra vez';
   }
   window.addEventListener('pointerdown', estallar, { passive: true });
 
+  var nitida = document.getElementById('nitida');
+
   var actual = 0;
-  var arma = 0;       /* 0 polvo, 1 cuadro armado */
-  var faseSale = false;
+  var arma = 0;        /* 0 polvo suelto, 1 cuadro armado con puntos */
+  var nitidez = 0;     /* 0 se ven los puntos, 1 se ve la foto de verdad */
+  var fase = 'entrando';   /* entrando → nitida → saliendo */
   var reloj = 0;
   var t0 = 0;
   var ultimo = 0;
@@ -329,10 +338,28 @@
     return valor + (meta - valor) * (1 - Math.exp(-ritmo * dt));
   }
 
+  /* La foto de verdad se coloca justo donde los puntos armaron el cuadro.
+     Solo se reescribe cuando de veras cambia, para no mover el DOM cada
+     cuadro de animación. */
+  var ultimaCaja = '';
+
+  function colocarNitida(enc) {
+    if (!nitida) return;
+    var caja = [Math.round(enc.cx - enc.w / 2), Math.round(enc.cy - enc.h / 2),
+                Math.round(enc.w), Math.round(enc.h)].join(',');
+    if (caja === ultimaCaja) return;
+    ultimaCaja = caja;
+    nitida.style.left = (enc.cx - enc.w / 2) + 'px';
+    nitida.style.top = (enc.cy - enc.h / 2) + 'px';
+    nitida.style.width = enc.w + 'px';
+    nitida.style.height = enc.h + 'px';
+  }
+
   function ponerFicha(obra) {
     if (!fichaTitulo || !fichaDato) return;
     fichaTitulo.textContent = obra.titulo;
     fichaDato.textContent = obra.dato;
+    if (nitida && obra.src) { nitida.src = obra.src; ultimaCaja = ''; }
   }
 
   function arrancar() {
@@ -365,22 +392,36 @@
     var obra = cargadas[actual];
     if (!obra) return;
 
-    /* armar → sostener → deshacer → siguiente obra */
+    /* Tres momentos:
+         entrando → los puntos llegan y arman el cuadro
+         nitida   → aparece la foto de verdad encima y se queda un rato
+         saliendo → la foto se va, los puntos se sueltan, entra la siguiente */
     reloj += dt;
-    if (!faseSale) {
-      arma = acercar(arma, 1, 1.35, dt);
-      if (reloj > 7.5 && listas > 1) { faseSale = true; reloj = 0; }
+
+    if (fase === 'entrando') {
+      arma = acercar(arma, 1, 1.5, dt);
+      nitidez = acercar(nitidez, 0, 9, dt);
+      if (arma > 0.965) { fase = 'nitida'; reloj = 0; }
+
+    } else if (fase === 'nitida') {
+      arma = acercar(arma, 1, 2.2, dt);
+      /* la foto aparece despacito; los puntos se apagan debajo */
+      nitidez = acercar(nitidez, 1, 2.0, dt);
+      if (reloj > 5.2 && listas > 1) { fase = 'saliendo'; reloj = 0; }
+
     } else {
-      arma = acercar(arma, 0, 3.3, dt);
+      nitidez = acercar(nitidez, 0, 5.5, dt);
       if (fichaCaja) fichaCaja.classList.add('oculta');
-      if (reloj > 1.5) {
+      /* primero se va la foto, y ya que no está, se sueltan los puntos */
+      if (reloj > 0.4) arma = acercar(arma, 0, 3.3, dt);
+      if (reloj > 2.1) {
         var siguiente = (actual + 1) % OBRAS.length;
         if (cargadas[siguiente]) {
           actual = siguiente;
           ponerFicha(cargadas[actual]);
         }
         if (fichaCaja) fichaCaja.classList.remove('oculta');
-        faseSale = false;
+        fase = 'entrando';
         reloj = 0;
       }
     }
@@ -390,12 +431,14 @@
     if (golpe < 0.002) golpe = 0;
 
     var enc = encuadre(obra.aspecto);
+    colocarNitida(enc);
+    if (nitida) nitida.style.opacity = nitidez.toFixed(3);
     /* el punto debe ser un pelín más gordo que el hueco entre puntos,
        si no se ve rayada la pintura */
     var paso_px = (enc.w / colsG) * dpr;
     var tam = Math.max(1.6, paso_px * 1.75);
 
-    gl.clearColor(0.027, 0.027, 0.024, 1);
+    gl.clearColor(0.992, 0.988, 0.980, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.useProgram(prog);
 
@@ -420,6 +463,8 @@
     gl.uniform1f(U.uDedoVivo, dedoVivo);
     gl.uniform1f(U.uPunto, tam);
     gl.uniform1f(U.uGolpe, golpe);
+    /* los puntos se apagan a medida que aparece la foto nítida */
+    gl.uniform1f(U.uVelo, Math.max(0, 1 - nitidez * 1.25));
 
     gl.drawArrays(gl.POINTS, 0, totalPuntos);
   }

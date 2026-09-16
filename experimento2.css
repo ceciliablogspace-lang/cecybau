@@ -4,10 +4,10 @@
    =========================================================== */
 
 :root {
-  --noche: #070706;
-  --papel: #f4efe6;
-  --suave: #b5aca0;
-  --tenue: #8a8175;
+  --papel: #fdfcfa;   /* el blanco cálido de su sitio */
+  --tinta: #1b1a18;   /* negro carbón */
+  --gris:  #6f6a63;   /* gris AA sobre el blanco */
+  --tenue: #77726a;
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -18,8 +18,8 @@ html, body { height: 100%; }
 
 body {
   margin: 0;
-  background: var(--noche);
-  color: var(--papel);
+  background: var(--papel);
+  color: var(--tinta);
   font-family: var(--sans);
   font-weight: 300;
   overflow: hidden;
@@ -39,6 +39,19 @@ img { max-width: 100%; display: block; }
   display: block;
   z-index: 0;
   touch-action: none;
+}
+
+/* La foto de verdad, nítida. Aparece justo encima de los puntos cuando
+   terminan de armar el cuadro, en el mismo lugar y del mismo tamaño.
+   El JS le pone la posición; aquí solo va el estilo. */
+.nitida {
+  position: fixed;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 18px 60px rgba(27, 26, 24, 0.16),
+              0 2px 10px rgba(27, 26, 24, 0.08);
+  will-change: opacity;
 }
 
 /* ----------------------------- el texto encima ----------------------------- */
@@ -61,7 +74,7 @@ img { max-width: 100%; display: block; }
   font-size: 11px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--suave);
+  color: var(--gris);
   opacity: 0;
   animation: surgir 1.2s 0.3s forwards ease-out;
 }
@@ -89,7 +102,7 @@ img { max-width: 100%; display: block; }
   font-family: var(--serif);
   font-style: italic;
   font-size: clamp(1rem, 3.4vw, 1.5rem);
-  color: var(--papel);
+  color: var(--tinta);
 }
 
 .ficha__dato {
@@ -107,7 +120,6 @@ img { max-width: 100%; display: block; }
   font-size: clamp(2.1rem, 8.6vw, 5.6rem);
   line-height: 0.98;
   letter-spacing: -0.02em;
-  text-shadow: 0 2px 40px rgba(7, 7, 6, 0.9);
 }
 
 .nombre .ltr {
@@ -147,25 +159,34 @@ img { max-width: 100%; display: block; }
 }
 
 .salidas a {
-  color: var(--suave);
+  color: var(--gris);
   text-decoration: none;
   padding-bottom: 3px;
   border-bottom: 1px solid transparent;
   transition: color 0.3s, border-color 0.3s;
 }
-.salidas a:hover { color: var(--papel); border-color: rgba(244, 239, 230, 0.4); }
+.salidas a:hover { color: var(--tinta); border-color: rgba(27, 26, 24, 0.35); }
 
 /* ----------------------------- respaldos ----------------------------- */
 
+/* Respaldo (sin WebGL o con "menos movimiento"): la obra quieta.
+   Se queda en el hueco de arriba para no taparle el nombre ni los enlaces. */
 .respaldo {
   position: fixed;
-  inset: 0;
+  inset: 7vh clamp(18px, 6vw, 64px) 31vh;
   z-index: 1;
   display: grid;
   place-items: center;
-  padding: 24px;
 }
-.respaldo img { max-height: 70vh; width: auto; }
+.respaldo img {
+  /* en vh, no en %: dentro de una rejilla el % no siempre lo respeta */
+  max-height: 62vh;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  box-shadow: 0 18px 60px rgba(27, 26, 24, 0.16),
+              0 2px 10px rgba(27, 26, 24, 0.08);
+}
 
 /* si el aparato pide menos movimiento: la obra quieta, sin partículas */
 @media (prefers-reduced-motion: reduce) {
